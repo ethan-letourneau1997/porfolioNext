@@ -1,9 +1,24 @@
-import { useState } from 'react';
-import NextApp, { AppProps, AppContext } from 'next/app';
+import {
+  AppShell,
+  ColorScheme,
+  ColorSchemeProvider,
+  Container,
+  Footer,
+  Header,
+  MantineProvider,
+} from '@mantine/core';
+import NextApp, { AppContext, AppProps } from 'next/app';
 import { getCookie, setCookie } from 'cookies-next';
+
 import Head from 'next/head';
-import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
+import { Inter } from 'next/font/google';
+
 import { Notifications } from '@mantine/notifications';
+import { useState } from 'react';
+import { NavHeader } from '../components/Navigation';
+import { LinkFooter } from '../components/footer';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -24,8 +39,60 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
-          <Component {...pageProps} />
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            fontFamily: inter.style.fontFamily,
+            colorScheme,
+            globalStyles: (theme) => ({
+              body: {
+                ...theme.fn.fontStyles(),
+                backgroundColor:
+                  theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2],
+                color: theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.black,
+                lineHeight: theme.lineHeight,
+              },
+            }),
+            colors: {},
+            components: {
+              Accordian: {
+                defaultProps: {},
+              },
+            },
+          }}
+        >
+          <AppShell
+            fixed={false}
+            header={
+              <Header
+                withBorder={false}
+                sx={(theme) => ({
+                  backgroundColor:
+                    theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2],
+                })}
+                height={60}
+              >
+                <NavHeader />
+              </Header>
+            }
+            footer={
+              <Footer
+                withBorder={false}
+                height={60}
+                sx={(theme) => ({
+                  backgroundColor:
+                    theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2],
+                })}
+              >
+                <LinkFooter />
+              </Footer>
+            }
+          >
+            <Container size="lg" py="xl" mih="calc(100vh - 156px)">
+              <Component {...pageProps} />
+            </Container>
+          </AppShell>
           <Notifications />
         </MantineProvider>
       </ColorSchemeProvider>
