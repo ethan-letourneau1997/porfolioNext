@@ -9,6 +9,8 @@ import {
 } from '@mantine/core';
 import NextApp, { AppContext, AppProps } from 'next/app';
 import { getCookie, setCookie } from 'cookies-next';
+// `pages/_app.js`
+import '../styles/global.css';
 
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
@@ -89,7 +91,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
               </Footer>
             }
           >
-            <Container size="xl" py="xl" mih="calc(100vh - 156px)">
+            <Container size="lg" py="xl" mih="calc(100vh - 156px)">
               <Component {...pageProps} />
             </Container>
           </AppShell>

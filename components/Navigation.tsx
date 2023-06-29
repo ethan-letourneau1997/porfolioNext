@@ -86,7 +86,7 @@ export function NavHeader() {
   return (
     <Box>
       <Header bg="transparent" withBorder={false} height={60} px="md">
-        <Container size="xl" pt={30}>
+        <Container size="lg" pt={30}>
           <Flex justify="space-between" sx={{ height: '100%' }}>
             {/* <MantineLogo size={30} /> */}
             <Title size="h3">{/* Ethan Letourneau */}</Title>
@@ -157,6 +157,19 @@ export function NavHeader() {
                   }}
                 >
                   Contact
+                </Anchor>
+                <Anchor
+                  underline={false}
+                  component={Link}
+                  href="/resume"
+                  className={classes.link}
+                  sx={{
+                    '&:hover': {
+                      color: theme.colors.yellow[5],
+                    },
+                  }}
+                >
+                  Resume
                 </Anchor>
 
                 <ColorSchemeToggle />

@@ -1,7 +1,7 @@
 import { Card, Text, Grid, Title, Stack, useMantineTheme } from '@mantine/core';
-import { IconApi, IconSql } from '@tabler/icons-react';
+import { IconApi } from '@tabler/icons-react';
 import React, { ReactNode } from 'react';
-import { BiSolidFlask } from 'react-icons/bi';
+import { BiSolidFlask, BiTerminal } from 'react-icons/bi';
 import { FaDatabase, FaDocker, FaNodeJs, FaSass } from 'react-icons/fa';
 import {
   SiCss3,
@@ -159,12 +159,12 @@ export default function Skills() {
         <SkillGridCol icon={<SiPostgresql color="#228be6" size={iconSize} />} name="PostgresSQL" />
         <SkillGridCol
           icon={
-            <IconSql
+            <BiTerminal
               color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
               size={iconSize}
             />
           }
-          name="Structured Query Language"
+          name="SQL"
         />
         <SkillGridCol icon={<TableauIcon size={iconSize} />} name="Tableau" />
         <SkillGridCol icon={<SiMongodb color="#4DB33D" size={iconSize} />} name="MongoDB" />
