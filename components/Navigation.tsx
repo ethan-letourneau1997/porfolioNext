@@ -86,7 +86,7 @@ export function NavHeader() {
   return (
     <Box>
       <Header bg="transparent" withBorder={false} height={60} px="md">
-        <Container size="lg" pt="xl">
+        <Container size="xl" pt={30}>
           <Flex justify="space-between" sx={{ height: '100%' }}>
             {/* <MantineLogo size={30} /> */}
             <Title size="h3">{/* Ethan Letourneau */}</Title>

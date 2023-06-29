@@ -1,14 +1,4 @@
-import {
-  Box,
-  Button,
-  Center,
-  Container,
-  Flex,
-  Text,
-  Title,
-  createStyles,
-  rem,
-} from '@mantine/core';
+import { Box, Button, Center, Flex, Text, Title, createStyles, rem } from '@mantine/core';
 
 import { useMediaQuery } from '@mantine/hooks';
 
@@ -143,7 +133,7 @@ export function Welcome() {
         </Text>
       </Title> */}
 
-      <Container size="lg" className={classes.titleBox}>
+      <Box className={classes.titleBox}>
         <Center h="60vh">
           <Box>
             <Title size={45} className={classes.title}>
@@ -194,7 +184,7 @@ export function Welcome() {
             </Flex>
           </Box>
         </Center>
-      </Container>
+      </Box>
     </>
   );
 }

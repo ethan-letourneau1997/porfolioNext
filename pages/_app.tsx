@@ -49,7 +49,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
               body: {
                 ...theme.fn.fontStyles(),
                 backgroundColor:
-                  theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2],
+                  theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
                 color: theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.black,
                 lineHeight: theme.lineHeight,
               },
@@ -69,7 +69,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
                 withBorder={false}
                 sx={(theme) => ({
                   backgroundColor:
-                    theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2],
+                    theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
                 })}
                 height={60}
               >
@@ -82,14 +82,14 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
                 height={60}
                 sx={(theme) => ({
                   backgroundColor:
-                    theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2],
+                    theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
                 })}
               >
                 <LinkFooter />
               </Footer>
             }
           >
-            <Container size="lg" py="xl" mih="calc(100vh - 156px)">
+            <Container size="xl" py="xl" mih="calc(100vh - 156px)">
               <Component {...pageProps} />
             </Container>
           </AppShell>

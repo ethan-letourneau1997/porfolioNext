@@ -39,7 +39,7 @@ interface SkillGridColProps {
 
 function SkillGridCol({ icon, name }: SkillGridColProps) {
   return (
-    <Grid.Col span={6} xs={4} sm={4} md={3} lg={12 / 4}>
+    <Grid.Col span={6} xs={4} sm={4} md={3} lg={2}>
       <Card shadow="xs" h="100%">
         <Stack py="sm" spacing="lg" align="center">
           {icon}
@@ -71,7 +71,9 @@ export default function Skills() {
       <SectionHeader title="Skills" />
       <Grid mt="xl">
         <Grid.Col span={12}>
-          <Title size="h2">Web Development</Title>
+          <Title mb="sm" mt="sm" align="center" size="h2">
+            Web Development
+          </Title>
         </Grid.Col>
         <SkillGridCol icon={<SiHtml5 color="#f06529" size={iconSize} />} name="HTML5" />
         <SkillGridCol icon={<SiCss3 color="#2965F1" size={iconSize} />} name="CSS3" />
@@ -101,16 +103,51 @@ export default function Skills() {
 
         <SkillGridCol icon={<FaSass color="#c69" size={iconSize} />} name="SASS" />
 
-        <SkillGridCol icon={<BiSolidFlask size={iconSize} />} name="Flask" />
+        <SkillGridCol
+          icon={
+            <BiSolidFlask
+              color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
+              size={iconSize}
+            />
+          }
+          name="Flask"
+        />
       </Grid>
 
       <Grid mt="xl">
         <Grid.Col span={12}>
-          <Title size="h2">Data</Title>
+          <Title align="center" mb="sm" mt="lg" size="h2">
+            Data
+          </Title>
         </Grid.Col>
-        <SkillGridCol icon={<CgDatabase size={iconSize} />} name="Database Design" />
-        <SkillGridCol icon={<FaDatabase size={iconSize} />} name="Database Design" />
-        <SkillGridCol icon={<SiGoogleanalytics size={iconSize} />} name="Data Analysis" />
+        <SkillGridCol
+          icon={
+            <CgDatabase
+              size={iconSize}
+              color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
+            />
+          }
+          name="Database Design"
+        />
+        <SkillGridCol
+          icon={
+            <SiGoogleanalytics
+              color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
+              size={iconSize}
+            />
+          }
+          name="Data Analysis"
+        />
+        <SkillGridCol
+          icon={
+            <FaDatabase
+              color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
+              size={iconSize}
+            />
+          }
+          name="Database Design"
+        />
+
         {theme.colorScheme === 'dark' ? (
           <SkillGridCol icon={<AccessIcon size={iconSize} />} name="MS Access" />
         ) : (
@@ -120,15 +157,33 @@ export default function Skills() {
           />
         )}
         <SkillGridCol icon={<SiPostgresql color="#228be6" size={iconSize} />} name="PostgresSQL" />
-        <SkillGridCol icon={<IconSql size={iconSize} />} name="Structured Query Language" />
+        <SkillGridCol
+          icon={
+            <IconSql
+              color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
+              size={iconSize}
+            />
+          }
+          name="Structured Query Language"
+        />
         <SkillGridCol icon={<TableauIcon size={iconSize} />} name="Tableau" />
         <SkillGridCol icon={<SiMongodb color="#4DB33D" size={iconSize} />} name="MongoDB" />
-        <SkillGridCol icon={<BsRobot size={iconSize} />} name="Machine Learning" />
+        <SkillGridCol
+          icon={
+            <BsRobot
+              color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
+              size={iconSize}
+            />
+          }
+          name="Machine Learning"
+        />
       </Grid>
 
       <Grid mt="xl">
         <Grid.Col span={12}>
-          <Title size="h2">Other</Title>
+          <Title mb="sm" mt="lg" align="center" size="h2">
+            Other
+          </Title>
         </Grid.Col>
         <SkillGridCol icon={<PythonIcon size={iconSize} />} name="Python" />
         <SkillGridCol icon={<JavaIcon size={iconSize} />} name="Java" />

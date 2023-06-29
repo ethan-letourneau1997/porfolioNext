@@ -15,7 +15,7 @@ export function SectionHeader({ title }: SectionHeaderProps) {
 
   return (
     <>
-      <Title size={tablet ? 30 : 40}>{title}</Title>
+      <Title size={tablet ? 30 : 35}>{title}</Title>
       <Divider my="md" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.5'} />
     </>
   );

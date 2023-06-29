@@ -8,10 +8,11 @@ export default function About() {
   const tablet = useMediaQuery('(max-width: 48em)');
 
   return (
-    <>
+    <Box>
       <SectionHeader title="About" />
       <Flex
         mt="xl"
+        pt="xl"
         gap={tablet ? 'xl' : 70}
         justify="center"
         align={tablet ? 'center' : ''}
@@ -53,6 +54,6 @@ export default function About() {
           </Text>
         </Stack>
       </Flex>
-    </>
+    </Box>
   );
 }
