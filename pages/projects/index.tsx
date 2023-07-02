@@ -10,6 +10,7 @@ import {
   createStyles,
   Space,
   Stack,
+  AspectRatio,
 } from '@mantine/core';
 
 import { useMediaQuery } from '@mantine/hooks';
@@ -178,17 +179,19 @@ function ProjectSection({
           my code&nbsp;&rarr;
         </Anchor>
       </Box>
-      <Paper
-        mx="2vw"
-        className={classes.projectImage}
-        mt={30}
-        shadow="md"
-        radius="xs"
-        withBorder
-        pos="relative"
-      >
-        <Image radius="xs" src={imgPath} />
-      </Paper>
+      <AspectRatio ratio={2880 / 1550}>
+        <Paper
+          mx="2vw"
+          className={classes.projectImage}
+          mt={30}
+          shadow="md"
+          radius="xs"
+          withBorder
+          pos="relative"
+        >
+          <Image radius="xs" src={imgPath} />
+        </Paper>
+      </AspectRatio>
     </Box>
   );
 }
