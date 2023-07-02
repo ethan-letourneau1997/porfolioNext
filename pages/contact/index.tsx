@@ -1,68 +1,15 @@
-import { Title, Container, useMantineTheme, Box, Button, TextInput, Textarea } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import { Container } from '@mantine/core';
+
+import { ContactForm } from '../../components/form/contactForm';
 
 export default function Contact() {
   // theme
-  const theme = useMantineTheme();
+  // const theme = useMantineTheme();
 
-  // form
-  const form = useForm({
-    initialValues: { name: '', email: '', age: 0 },
-
-    // functions will be used to validate values at corresponding key
-    validate: {
-      name: (value) => (value.length < 2 ? 'Name must have at least 2 letters' : null),
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-      age: (value) => (value < 18 ? 'You must be at least 18 to register' : null),
-    },
-  });
   return (
     <Container size="lg" px="2vw" pt="xl">
-      <Title fw={600} align="center" size="h3">
-        Send Me a Message
-      </Title>
-      <Box maw={320} mx="auto">
-        <form onSubmit={form.onSubmit(console.log)}>
-          <TextInput
-            withAsterisk
-            mt="sm"
-            label="Email"
-            placeholder="Email"
-            {...form.getInputProps('email')}
-          />
-          <Textarea
-            mt="md"
-            placeholder="Your message"
-            label="Your message"
-            withAsterisk
-            autosize
-            minRows={4}
-          />
+      <ContactForm />
 
-          <Button
-            variant="outline"
-            color="dark.5"
-            type="submit"
-            mt="lg"
-            ml={2}
-            styles={{
-              root: {
-                '&:not([data-disabled])': theme.fn.hover({
-                  backgroundColor: theme.colors.dark[6],
-                  color: 'white',
-                }),
-              },
-            }}
-            sx={{
-              '&:hover': {
-                backgroundColor: 'black',
-              },
-            }}
-          >
-            Submit
-          </Button>
-        </form>
-      </Box>
       {/* <Center pt="xl" mt={20}>
         <Card maw={500}>
           <Title align="center" size="h3">

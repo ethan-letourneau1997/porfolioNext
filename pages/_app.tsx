@@ -2,10 +2,8 @@ import {
   Affix,
   AppShell,
   Box,
-  Button,
   ColorScheme,
   ColorSchemeProvider,
-  Container,
   Footer,
   Header,
   MantineProvider,
@@ -22,10 +20,9 @@ import { Inter } from 'next/font/google';
 
 import { Notifications } from '@mantine/notifications';
 import { useState } from 'react';
-import { IconArrowUp } from '@tabler/icons-react';
+
 import { NavHeader } from '../components/Navigation';
 import { LinkFooter } from '../components/footer';
-import SideLinks from '../components/sideLinks';
 
 const inter = Inter({ subsets: ['latin'] });
 
