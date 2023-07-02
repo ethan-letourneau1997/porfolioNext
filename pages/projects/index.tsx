@@ -150,7 +150,10 @@ function ProjectSection({
     <Box>
       <Box px="2vw" className={classes.itemDetails}>
         <Title className={classes.title} fw={theme.colorScheme === 'dark' ? 500 : 650}>
-          <Anchor href={titleURL}>{titleLeft}:&nbsp;</Anchor> {titleRight}
+          <Anchor target="_blank" href={titleURL}>
+            {titleLeft}:&nbsp;
+          </Anchor>{' '}
+          {titleRight}
         </Title>
 
         <Text
@@ -175,7 +178,7 @@ function ProjectSection({
         <Text fw={500} c="dark.4" span>
           Take a look at&nbsp;
         </Text>
-        <Anchor href={repoLink} fw={500}>
+        <Anchor target="_blank" href={repoLink} fw={500}>
           my code&nbsp;&rarr;
         </Anchor>
       </Box>
@@ -215,7 +218,7 @@ export default function Projects() {
             description="Explore a wide variety of movies, tv shows, and actors. An autocomplete search
             functionality makes finding information quick and easy."
             builtWith="Next.js, React.js, TypeScript, Fetch API, SASS, Mantine"
-            repoLink="#"
+            repoLink="https://github.com/ethan-letourneau1997/cinegraphNextTemplate"
           />
           <ProjectSection
             imgPath="https://res.cloudinary.com/eletourneau/image/upload/v1688273434/My%20Portfolio/marchMadnessProj_yjiesw.webp"
@@ -225,16 +228,16 @@ export default function Projects() {
             description=" Created for a client's March Madness league. Allows users to draft their team and
             keep up to date with league rankings."
             builtWith="Django, PostgresSQL, AWS Lightsail, Python, Bootstrap, HTML5, SASS"
-            repoLink="#"
+            repoLink="https://github.com/ethan-letourneau1997/march-madness-frontend"
           />
           <ProjectSection
             imgPath="https://res.cloudinary.com/eletourneau/image/upload/v1688273434/My%20Portfolio/portfolioProj_bld7ay.webp"
             titleLeft="Portfolio Website"
             titleRight="My Personal Site"
-            titleURL="#"
+            titleURL="https://ethanlet.com"
             description="The site you're on right now!"
             builtWith="Next.js, React, Typescript, CSS3, HTML5, Mantine"
-            repoLink="#"
+            repoLink="https://github.com/ethan-letourneau1997/porfolioNext"
           />
         </Stack>
 

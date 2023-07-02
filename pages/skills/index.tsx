@@ -1,8 +1,8 @@
 import { Card, Text, Grid, Title, Stack, useMantineTheme, Container, Box } from '@mantine/core';
 import { IconApi } from '@tabler/icons-react';
 import React, { ReactNode } from 'react';
-import { BiSolidFlask, BiTerminal } from 'react-icons/bi';
-import { FaDatabase, FaDocker, FaNodeJs, FaSass } from 'react-icons/fa';
+import { BiTerminal } from 'react-icons/bi';
+import { FaDocker, FaNodeJs, FaSass } from 'react-icons/fa';
 import {
   SiCss3,
   SiDjango,
@@ -84,9 +84,6 @@ export default function Skills() {
                 Web Development
               </Title>
             </Grid.Col>
-            <SkillGridCol icon={<SiHtml5 color="#f06529" size={iconSize} />} name="HTML5" />
-            <SkillGridCol icon={<SiCss3 color="#2965F1" size={iconSize} />} name="CSS3" />
-            <SkillGridCol icon={<TypeScriptIcon size={iconSize} />} name="TypeScript" />
             <SkillGridCol icon={<SiReact color="#61DBFB" size={iconSize} />} name="React" />
             {theme.colorScheme === 'dark' ? (
               <SkillGridCol icon={<NextIcon size={iconSize} />} name="Next.js" />
@@ -103,22 +100,18 @@ export default function Skills() {
               }
               name="Node.js"
             />
+            <SkillGridCol icon={<TypeScriptIcon size={iconSize} />} name="TypeScript" />
             <SkillGridCol icon={<BootstrapIcon size={iconSize} />} name="Bootstrap" />
-            <SkillGridCol icon={<IconApi size={iconSize} />} name="Rest API" />
             <SkillGridCol
               icon={<SiTailwindcss color="#00B7D6" size={iconSize} />}
               name="Tailwind CSS"
             />
+
             <SkillGridCol icon={<FaSass color="#c69" size={iconSize} />} name="SASS" />
-            <SkillGridCol
-              icon={
-                <BiSolidFlask
-                  color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
-                  size={iconSize}
-                />
-              }
-              name="Flask"
-            />
+            <SkillGridCol icon={<JavaScriptIcon size={iconSize} />} name="JavaScript" />
+            <SkillGridCol icon={<IconApi size={iconSize} />} name="Rest API" />
+            <SkillGridCol icon={<SiHtml5 color="#f06529" size={iconSize} />} name="HTML5" />
+            <SkillGridCol icon={<SiCss3 color="#2965F1" size={iconSize} />} name="CSS3" />
           </Grid>
           <Grid mt="xl">
             <Grid.Col span={12}>
@@ -126,6 +119,31 @@ export default function Skills() {
                 Data
               </Title>
             </Grid.Col>
+            {theme.colorScheme === 'dark' ? (
+              <SkillGridCol icon={<AccessIcon size={iconSize} />} name="MS Access" />
+            ) : (
+              <SkillGridCol
+                icon={<SiMicrosoftaccess color="#c92a2a" size={iconSize} />}
+                name="MS Access"
+              />
+            )}
+            <SkillGridCol icon={<SiMongodb color="#4DB33D" size={iconSize} />} name="MongoDB" />
+
+            <SkillGridCol
+              icon={<SiPostgresql color="#228be6" size={iconSize} />}
+              name="PostgresSQL"
+            />
+
+            <SkillGridCol icon={<TableauIcon size={iconSize} />} name="Tableau" />
+            <SkillGridCol
+              icon={
+                <BiTerminal
+                  color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
+                  size={iconSize}
+                />
+              }
+              name="SQL"
+            />
             <SkillGridCol
               icon={
                 <CgDatabase
@@ -146,38 +164,6 @@ export default function Skills() {
             />
             <SkillGridCol
               icon={
-                <FaDatabase
-                  color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
-                  size={iconSize}
-                />
-              }
-              name="Database Design"
-            />
-            {theme.colorScheme === 'dark' ? (
-              <SkillGridCol icon={<AccessIcon size={iconSize} />} name="MS Access" />
-            ) : (
-              <SkillGridCol
-                icon={<SiMicrosoftaccess color="#c92a2a" size={iconSize} />}
-                name="MS Access"
-              />
-            )}
-            <SkillGridCol
-              icon={<SiPostgresql color="#228be6" size={iconSize} />}
-              name="PostgresSQL"
-            />
-            <SkillGridCol
-              icon={
-                <BiTerminal
-                  color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
-                  size={iconSize}
-                />
-              }
-              name="SQL"
-            />
-            <SkillGridCol icon={<TableauIcon size={iconSize} />} name="Tableau" />
-            <SkillGridCol icon={<SiMongodb color="#4DB33D" size={iconSize} />} name="MongoDB" />
-            <SkillGridCol
-              icon={
                 <BsRobot
                   color={theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9]}
                   size={iconSize}
@@ -194,7 +180,7 @@ export default function Skills() {
             </Grid.Col>
             <SkillGridCol icon={<PythonIcon size={iconSize} />} name="Python" />
             <SkillGridCol icon={<JavaIcon size={iconSize} />} name="Java" />
-            <SkillGridCol icon={<JavaScriptIcon size={iconSize} />} name="JavaScript" />
+
             <SkillGridCol icon={<BsGit size={iconSize} color="#F34F29" />} name="Git" />
             <SkillGridCol icon={<FaDocker color="#2496ED" size={iconSize} />} name="Docker" />
           </Grid>

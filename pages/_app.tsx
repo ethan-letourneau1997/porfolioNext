@@ -66,7 +66,9 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
                 lineHeight: theme.lineHeight,
               },
             }),
-            colors: {},
+            colors: {
+              link: ['#0066CC'],
+            },
             components: {
               Accordian: {
                 defaultProps: {},

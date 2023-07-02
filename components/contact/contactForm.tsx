@@ -70,6 +70,13 @@ export function ContactForm() {
           placeholder="your@email.com"
           type="email"
           name="email"
+          styles={{
+            input: {
+              '&:focus': {
+                border: '1px solid black',
+              },
+            },
+          }}
         />
         <Textarea
           mt="md"
@@ -79,6 +86,13 @@ export function ContactForm() {
           autosize
           minRows={4}
           name="message"
+          styles={{
+            input: {
+              '&:focus': {
+                border: '1px solid black',
+              },
+            },
+          }}
         />
         <Button
           name="send message"

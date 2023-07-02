@@ -243,7 +243,13 @@ export function Welcome() {
         <Container size="sm">
           <Center>
             <Text span>Take a look at&nbsp;</Text>
-            <Anchor>my resume&nbsp;&rarr;</Anchor>
+            <Anchor
+              href="https://drive.google.com/file/d/12rbXGG4UlniWVrHgxqYtEC3FBE2lmHt5/view?usp=sharing"
+              target="_blank"
+              color="link.0"
+            >
+              my resume&nbsp;&rarr;
+            </Anchor>
           </Center>
           <Title mt="xl" align="center" size="h2" c="dark.6" fw={600}>
             More About Me

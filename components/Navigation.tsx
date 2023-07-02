@@ -109,9 +109,17 @@ export function NavHeader() {
         <Container size="lg" pt={20}>
           <Flex mx="2vw" justify="space-between" sx={{ height: '100%' }}>
             <Center>
-              <Title c="white" size="h4">
-                Ethan Letourneau
-              </Title>
+              <Anchor
+                c="dark.0"
+                underline={false}
+                component={Link}
+                href="/"
+                className={`${classes.link} header-link`}
+              >
+                <Title c="white" size="h4">
+                  Ethan Letourneau
+                </Title>
+              </Anchor>
             </Center>
             <Box>
               <Group sx={{ height: '100%' }} spacing="xs" className={classes.hiddenMobile}>
