@@ -81,6 +81,7 @@ export function ContactForm() {
           name="message"
         />
         <Button
+          name="send message"
           variant="outline"
           color="dark.5"
           type="submit"

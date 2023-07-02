@@ -183,23 +183,35 @@ export function NavHeader() {
             {/* <Center> */}
             <Stack fz="lg" pt="md" align="center" justify="center">
               <Box>
-                <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
+                <Anchor fz="lg" c="gray.0" component={Link} href="/" className={classes.link}>
                   Home
                 </Anchor>
               </Box>
               <Box>
-                <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
+                <Anchor
+                  fz="lg"
+                  c="gray.0"
+                  component={Link}
+                  href="/projects"
+                  className={classes.link}
+                >
                   Projects
                 </Anchor>
               </Box>
               <Box>
-                <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
+                <Anchor fz="lg" c="gray.0" component={Link} href="/skills" className={classes.link}>
                   Skills
                 </Anchor>
               </Box>
 
               <Box>
-                <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
+                <Anchor
+                  fz="lg"
+                  c="gray.0"
+                  component={Link}
+                  href="/contact"
+                  className={classes.link}
+                >
                   Contact
                 </Anchor>
               </Box>

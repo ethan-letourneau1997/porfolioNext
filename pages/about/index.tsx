@@ -26,7 +26,7 @@ export default function About() {
             Ethan Letourneau
           </Title>
           <Center>
-            <Button c="indigo.2s" variant="subtle">
+            <Button name="view resume" c="indigo.2s" variant="subtle">
               My Resume
             </Button>
           </Center>
