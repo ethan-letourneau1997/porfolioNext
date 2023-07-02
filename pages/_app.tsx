@@ -12,7 +12,6 @@ import {
 } from '@mantine/core';
 import NextApp, { AppContext, AppProps } from 'next/app';
 import { getCookie, setCookie } from 'cookies-next';
-// `pages/_app.js`
 import '../styles/global.css';
 
 import Head from 'next/head';
@@ -21,6 +20,7 @@ import { Inter } from 'next/font/google';
 import { Notifications } from '@mantine/notifications';
 import { useState } from 'react';
 
+import { useRouter } from 'next/router';
 import { NavHeader } from '../components/Navigation';
 import { LinkFooter } from '../components/footer';
 
@@ -28,7 +28,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
 
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
@@ -39,14 +39,14 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const theme = useMantineTheme();
 
   const lightModeBg = '#f2f2f2';
-  const darkModeBg = theme.colors.dark[8];
+
+  const { asPath } = useRouter();
 
   return (
     <>
       <Head>
         <title>Ethan Letourneau</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        {/* <link rel="shortcut icon" href="/favicon.svg" /> */}
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
@@ -61,13 +61,10 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
             globalStyles: (theme) => ({
               body: {
                 ...theme.fn.fontStyles(),
-                backgroundColor: theme.colorScheme === 'dark' ? darkModeBg : lightModeBg,
+                backgroundColor: theme.colorScheme === 'dark' ? lightModeBg : lightModeBg,
                 color: theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.black,
                 lineHeight: theme.lineHeight,
               },
-              // '.footer': {
-              //   backgroundColor: theme.colorScheme === 'dark' ? darkModeBg : lightModeBg,
-              // },
             }),
             colors: {},
             components: {
@@ -90,7 +87,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
               <Header
                 withBorder={false}
                 sx={() => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? darkModeBg : 'transparent',
+                  backgroundColor: theme.colorScheme === 'dark' ? lightModeBg : 'transparent',
                 })}
                 height="100%"
               >
@@ -104,30 +101,16 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
                 sx={{
                   backgroundClip: 'transparent',
                 }}
-                // eslint-disable-next-line @typescript-eslint/no-shadow
-                // bg={theme.colorScheme === 'dark' ? 'dark.7' : 'dark.9'}
               >
                 <LinkFooter />
               </Footer>
             }
           >
-            {/* <Container
-              sx={{
-                flexDirection: 'column',
-              }}
-              display="flex"
-              // size="lg"
-              // fluid
-              py="xl"
-              mih="calc(100vh - 226px)"
-              size="lg"
-            > */}
-            <Box mih="calc(100vh - 135px)">
+            <Box mih={asPath === '/' ? 'calc(100vh - 135px)' : 'calc(100vh - 364px)'}>
               <Affix position={{ bottom: rem(20), left: rem(20) }}>{/* <SideLinks /> */}</Affix>
 
               <Component {...pageProps} />
             </Box>
-            {/* </Container> */}
           </AppShell>
           <Notifications />
         </MantineProvider>

@@ -1,4 +1,4 @@
-import { Box, Button, TextInput, Textarea, Title, useMantineTheme } from '@mantine/core';
+import { Button, TextInput, Textarea, Title, useMantineTheme } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 
 export function ContactForm() {
@@ -59,52 +59,51 @@ export function ContactForm() {
 
   return (
     <>
-      <Box maw={320} mx="auto">
-        <Title fw={600} align="center" size="h3">
-          Send me a message!
-        </Title>
-        <form onSubmit={handleSubmit}>
-          <TextInput
-            withAsterisk
-            mt="sm"
-            label="Email"
-            placeholder="your@email.com"
-            type="email"
-            name="email"
-          />
-          <Textarea
-            mt="md"
-            placeholder="Hello, I am reaching out to..."
-            label="Your message"
-            withAsterisk
-            autosize
-            minRows={4}
-            name="message"
-          />
-          <Button
-            variant="outline"
-            color="dark.5"
-            type="submit"
-            mt="lg"
-            ml={2}
-            styles={{
-              root: {
-                '&:not([data-disabled])': theme.fn.hover({
-                  backgroundColor: theme.colors.dark[6],
-                  color: 'white',
-                }),
-              },
-            }}
-            sx={{
-              '&:hover': {
+      <Title fw={600} align="center" size="h4">
+        Send me a message!
+      </Title>
+      <form onSubmit={handleSubmit}>
+        <TextInput
+          withAsterisk
+          mt="sm"
+          label="Email"
+          placeholder="your@email.com"
+          type="email"
+          name="email"
+        />
+        <Textarea
+          mt="md"
+          placeholder="Hello, I am reaching out to..."
+          label="Your message"
+          withAsterisk
+          autosize
+          minRows={4}
+          name="message"
+        />
+        <Button
+          variant="outline"
+          color="dark.5"
+          type="submit"
+          mt="lg"
+          ml={2}
+          fw={500}
+          styles={{
+            root: {
+              '&:not([data-disabled])': theme.fn.hover({
                 backgroundColor: 'black',
-              },
-            }}
-          >
-            Submit
-          </Button>
-        </form>
-      </Box>
+                color: 'white',
+              }),
+            },
+          }}
+          sx={{
+            '&:hover': {
+              backgroundColor: 'black',
+            },
+          }}
+        >
+          Submit
+        </Button>
+      </form>
     </>
   );
 }

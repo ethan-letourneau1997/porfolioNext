@@ -14,8 +14,6 @@ import { Raleway } from 'next/font/google';
 
 import { useMediaQuery } from '@mantine/hooks';
 
-import ethanHeadshot from '../../public/headshot.png';
-
 const raleway = Raleway({ subsets: ['latin'] });
 
 const useStyles = createStyles((theme) => ({
@@ -193,13 +191,16 @@ export function Welcome() {
           <Center>
             <Flex direction="column" align="center">
               <Box
-                style={{ backgroundImage: `url(${ethanHeadshot})` }}
+                style={{
+                  backgroundImage:
+                    'url(https://res.cloudinary.com/eletourneau/image/upload/v1688274307/My%20Portfolio/headshot_bfmdwq.jpg)',
+                }}
                 display="inline-block"
                 pos="relative"
                 w={150}
                 h={150}
                 sx={{
-                  backgroundColor: 'red',
+                  backgroundColor: 'black',
                   borderRadius: '50%',
                   backgroundImage: `url(${headshot})`,
                   backgroundSize: 'cover',

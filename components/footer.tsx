@@ -33,24 +33,24 @@ export function LinkFooter() {
     <Box bg={theme.colorScheme === 'dark' ? 'dark.8' : 'black'}>
       <Container size="lg" py="xs">
         <Center>
-          <Group align="flex-end" spacing="lg">
+          <Group align="flex-end" spacing="xl">
             <Tooltip label="My Github" disabled={!!mobile}>
               <Anchor>
                 <GithubIcon
                   color={theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.colors.gray[2]}
-                  size={mobile ? 24 : 33}
+                  size={mobile ? 24 : 28}
                   style={{ marginBottom: 3 }}
                 />
               </Anchor>
             </Tooltip>
             <Tooltip label="My Linkedin" disabled={!!mobile}>
               <Anchor>
-                <BiLogoLinkedin color={theme.colors.blue[7]} size={mobile ? 32 : 40} />
+                <BiLogoLinkedin color={theme.colors.blue[7]} size={mobile ? 32 : 34} />
               </Anchor>
             </Tooltip>
             <Tooltip label="Email Me" disabled={!!mobile}>
               <Anchor>
-                <SiGmail color={theme.colors.red[6]} size={mobile ? 24 : 33} />
+                <SiGmail color={theme.colors.red[6]} size={mobile ? 24 : 28} />
               </Anchor>
             </Tooltip>
             <Tooltip label="My Resume" disabled={!!mobile}>
@@ -59,7 +59,7 @@ export function LinkFooter() {
                   color={
                     theme.colorScheme === 'dark' ? theme.colors.yellow[5] : theme.colors.yellow[6]
                   }
-                  size={mobile ? 24 : 33}
+                  size={mobile ? 24 : 28}
                 />
               </Anchor>
             </Tooltip>

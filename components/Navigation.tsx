@@ -108,7 +108,6 @@ export function NavHeader() {
       >
         <Container size="lg" pt={20}>
           <Flex mx="2vw" justify="space-between" sx={{ height: '100%' }}>
-            {/* <MantineLogo size={30} /> */}
             <Center>
               <Title c="white" size="h4">
                 Ethan Letourneau
@@ -188,11 +187,6 @@ export function NavHeader() {
                   Home
                 </Anchor>
               </Box>
-              {/* <Box>
-                <Anchor fz="lg" component={Link} href="#" className={classes.link}>
-                  About
-                </Anchor>
-              </Box> */}
               <Box>
                 <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
                   Projects

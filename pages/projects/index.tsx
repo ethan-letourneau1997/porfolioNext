@@ -7,7 +7,6 @@ import {
   Paper,
   Anchor,
   Container,
-  Overlay,
   createStyles,
   Space,
   Stack,
@@ -188,7 +187,6 @@ function ProjectSection({
         withBorder
         pos="relative"
       >
-        <Overlay opacity={0.05} radius="xs" />
         <Image radius="xs" src={imgPath} />
       </Paper>
     </Box>
@@ -207,27 +205,27 @@ export default function Projects() {
       <Container className={classes.pageWrapper} mb={50} size="lg">
         <Stack spacing={70}>
           <ProjectSection
-            imgPath="cinegraphNoDevice.png"
+            imgPath="https://res.cloudinary.com/eletourneau/image/upload/v1688273434/My%20Portfolio/cinegraphProj_uajvkg.webp"
             titleLeft="Cinegraph"
             titleRight="Movie and TV Database"
-            titleURL="#"
+            titleURL="https://www.cinegraphtv.com/"
             description="Explore a wide variety of movies, tv shows, and actors. An autocomplete search
             functionality makes finding information quick and easy."
             builtWith="Next.js, React.js, TypeScript, Fetch API, SASS, Mantine"
             repoLink="#"
           />
           <ProjectSection
-            imgPath="mmNoDevice.png"
+            imgPath="https://res.cloudinary.com/eletourneau/image/upload/v1688273434/My%20Portfolio/marchMadnessProj_yjiesw.webp"
             titleLeft="March Madness"
             titleRight="Fantasy League Tracker"
-            titleURL="#"
+            titleURL="http://draft-bracket.com/"
             description=" Created for a client's March Madness league. Allows users to draft their team and
             keep up to date with league rankings."
             builtWith="Django, PostgresSQL, AWS Lightsail, Python, Bootstrap, HTML5, SASS"
             repoLink="#"
           />
           <ProjectSection
-            imgPath="mySite.png"
+            imgPath="https://res.cloudinary.com/eletourneau/image/upload/v1688273434/My%20Portfolio/portfolioProj_bld7ay.webp"
             titleLeft="Portfolio Website"
             titleRight="My Personal Site"
             titleURL="#"
