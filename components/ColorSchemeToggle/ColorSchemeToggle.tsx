@@ -14,15 +14,20 @@ export function ColorSchemeToggle() {
         size="lg"
         sx={(theme) => ({
           backgroundColor:
-            theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2],
-          color: theme.colorScheme === 'dark' ? theme.colors.yellow[4] : theme.colors.blue[6],
+            theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.dark[9],
+          '&:hover': {
+            color: theme.colorScheme === 'dark' ? theme.colors.yellow[2] : theme.colors.violet[2],
+            backgroundColor:
+              theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.dark[9],
+          },
+          color: theme.colorScheme === 'dark' ? theme.colors.yellow[4] : theme.colors.violet[4],
         })}
       >
         {colorScheme === 'dark' ? (
-          <MdSunny size={20} />
+          <MdSunny size={23} />
         ) : (
-          <Box c="violet.6">
-            <IconMoonFilled size={20} />
+          <Box>
+            <IconMoonFilled size={23} />
           </Box>
         )}
       </ActionIcon>

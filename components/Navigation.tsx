@@ -2,8 +2,8 @@ import {
   Anchor,
   Box,
   Burger,
+  Center,
   Container,
-  Divider,
   Drawer,
   Flex,
   Group,
@@ -16,7 +16,8 @@ import {
 
 import Link from 'next/link';
 import { useDisclosure } from '@mantine/hooks';
-import { ColorSchemeToggle } from './ColorSchemeToggle/ColorSchemeToggle';
+import { useRouter } from 'next/router';
+import { SectionHeader } from './sectionHeader';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -83,102 +84,82 @@ export function NavHeader() {
 
   const { classes, theme } = useStyles();
 
+  const { asPath } = useRouter();
+
+  const sectionTitle = asPath.replace(/\//g, '').charAt(0).toUpperCase() + asPath.slice(2);
+
+  let headerDescription = '';
+
+  if (asPath === '/projects') {
+    headerDescription = 'Some of the projects I have made and the tools used.';
+  } else if (asPath === '/skills') {
+    headerDescription = 'The skills and technologies I am proficient in.';
+  } else if (asPath === '/contact') {
+    headerDescription = 'How to get in touch with me.';
+  }
+
   return (
-    <Box>
-      <Header bg="transparent" withBorder={false} height={60} px="md">
-        <Container size="lg" pt={30}>
-          <Flex justify="space-between" sx={{ height: '100%' }}>
+    <Box bg={theme.colorScheme === 'dark' ? 'transparent' : 'black'}>
+      <Header
+        bg={theme.colorScheme === 'dark' ? 'transparent' : 'black'}
+        withBorder={false}
+        height={70}
+        px="md"
+      >
+        <Container size="lg" pt={20}>
+          <Flex mx="2vw" justify="space-between" sx={{ height: '100%' }}>
             {/* <MantineLogo size={30} /> */}
-            <Title size="h3">{/* Ethan Letourneau */}</Title>
+            <Center>
+              <Title c="white" size="h4">
+                Ethan Letourneau
+              </Title>
+            </Center>
             <Box>
-              <Group sx={{ height: '100%' }} spacing={25} className={classes.hiddenMobile}>
+              <Group sx={{ height: '100%' }} spacing="xs" className={classes.hiddenMobile}>
                 <Anchor
+                  c="dark.0"
                   underline={false}
                   component={Link}
                   href="/"
-                  className={classes.link}
-                  sx={{
-                    '&:hover': {
-                      color: theme.colors.green[5],
-                    },
-                  }}
+                  className={`${classes.link} header-link`}
                 >
                   Home
                 </Anchor>
-
                 <Anchor
-                  underline={false}
-                  component={Link}
-                  href="/skills"
-                  className={classes.link}
-                  sx={{
-                    '&:hover': {
-                      color: theme.colors.blue[5],
-                    },
-                  }}
-                >
-                  Skills
-                </Anchor>
-                <Anchor
+                  c="dark.0"
                   underline={false}
                   component={Link}
                   href="/projects"
-                  className={classes.link}
-                  sx={{
-                    '&:hover': {
-                      color: theme.colors.red[5],
-                    },
-                  }}
+                  className={`${classes.link} header-link`}
                 >
                   Projects
                 </Anchor>
                 <Anchor
+                  c="dark.0"
                   underline={false}
                   component={Link}
-                  href="/about"
-                  className={classes.link}
-                  sx={{
-                    '&:hover': {
-                      color: theme.colors.violet[5],
-                    },
-                  }}
+                  href="/skills"
+                  className={`${classes.link} header-link`}
                 >
-                  About
+                  Skills
                 </Anchor>
+
                 <Anchor
+                  c="dark.0"
                   underline={false}
                   component={Link}
                   href="/contact"
-                  className={classes.link}
-                  sx={{
-                    '&:hover': {
-                      color: theme.colors.yellow[5],
-                    },
-                  }}
+                  className={`${classes.link} header-link`}
                 >
                   Contact
                 </Anchor>
-                <Anchor
-                  underline={false}
-                  component={Link}
-                  href="/resume"
-                  className={classes.link}
-                  sx={{
-                    '&:hover': {
-                      color: theme.colors.yellow[5],
-                    },
-                  }}
-                >
-                  Resume
-                </Anchor>
 
-                <ColorSchemeToggle />
+                {/* <ColorSchemeToggle /> */}
               </Group>
               <Group>
-                <Box className={classes.hiddenDesktop}>
-                  <ColorSchemeToggle />
-                </Box>
+                <Box className={classes.hiddenDesktop}>{/* <ColorSchemeToggle /> */}</Box>
                 <Burger
+                  color="white"
                   opened={drawerOpened}
                   onClick={toggleDrawer}
                   className={classes.hiddenDesktop}
@@ -188,40 +169,43 @@ export function NavHeader() {
           </Flex>
         </Container>
       </Header>
+      {asPath !== '/' && <SectionHeader description={headerDescription} title={sectionTitle} />}
 
       <Drawer.Root
         className={classes.hiddenDesktop}
         opened={drawerOpened}
         onClose={closeDrawer}
-        position="right"
+        position="left"
+        size="xl"
       >
-        <Drawer.Content mt={60} bg={theme.colorScheme === 'dark' ? 'dark.8' : 'gray.2'}>
+        <Drawer.Content mt={60} bg={theme.colorScheme === 'dark' ? 'dark.8' : 'black'}>
           <Drawer.Body>
-            <Divider mb="md" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.5'} />
+            {/* <Divider mb="md" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.5'} /> */}
             {/* <Center> */}
             <Stack fz="lg" pt="md" align="center" justify="center">
               <Box>
-                <Anchor fz="lg" component={Link} href="#" className={classes.link}>
+                <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
                   Home
                 </Anchor>
               </Box>
-              <Box>
+              {/* <Box>
                 <Anchor fz="lg" component={Link} href="#" className={classes.link}>
                   About
                 </Anchor>
-              </Box>
+              </Box> */}
               <Box>
-                <Anchor fz="lg" component={Link} href="#" className={classes.link}>
-                  Skills
-                </Anchor>
-              </Box>
-              <Box>
-                <Anchor fz="lg" component={Link} href="#" className={classes.link}>
+                <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
                   Projects
                 </Anchor>
               </Box>
               <Box>
-                <Anchor fz="lg" component={Link} href="#" className={classes.link}>
+                <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
+                  Skills
+                </Anchor>
+              </Box>
+
+              <Box>
+                <Anchor fz="lg" c="gray.0" component={Link} href="#" className={classes.link}>
                   Contact
                 </Anchor>
               </Box>

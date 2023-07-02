@@ -1,6 +1,5 @@
 import { Title, Text, Stack, Image, Box, Center, Flex, Button } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { SectionHeader } from '../../components/sectionHeader';
 
 export default function About() {
   // styles
@@ -9,7 +8,6 @@ export default function About() {
 
   return (
     <Box>
-      <SectionHeader title="About" />
       <Flex
         mt="xl"
         pt="xl"

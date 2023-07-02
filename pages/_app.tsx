@@ -1,11 +1,16 @@
 import {
+  Affix,
   AppShell,
+  Box,
+  Button,
   ColorScheme,
   ColorSchemeProvider,
   Container,
   Footer,
   Header,
   MantineProvider,
+  rem,
+  useMantineTheme,
 } from '@mantine/core';
 import NextApp, { AppContext, AppProps } from 'next/app';
 import { getCookie, setCookie } from 'cookies-next';
@@ -17,8 +22,10 @@ import { Inter } from 'next/font/google';
 
 import { Notifications } from '@mantine/notifications';
 import { useState } from 'react';
+import { IconArrowUp } from '@tabler/icons-react';
 import { NavHeader } from '../components/Navigation';
 import { LinkFooter } from '../components/footer';
+import SideLinks from '../components/sideLinks';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,29 +39,38 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
     setCookie('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
   };
 
+  const theme = useMantineTheme();
+
+  const lightModeBg = '#f2f2f2';
+  const darkModeBg = theme.colors.dark[8];
+
   return (
     <>
       <Head>
-        <title>Mantine next example</title>
+        <title>Ethan Letourneau</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        {/* <link rel="shortcut icon" href="/favicon.svg" /> */}
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider
           withGlobalStyles
           withNormalizeCSS
+          withCSSVariables
           theme={{
             fontFamily: inter.style.fontFamily,
             colorScheme,
+            // eslint-disable-next-line @typescript-eslint/no-shadow
             globalStyles: (theme) => ({
               body: {
                 ...theme.fn.fontStyles(),
-                backgroundColor:
-                  theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+                backgroundColor: theme.colorScheme === 'dark' ? darkModeBg : lightModeBg,
                 color: theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.black,
                 lineHeight: theme.lineHeight,
               },
+              // '.footer': {
+              //   backgroundColor: theme.colorScheme === 'dark' ? darkModeBg : lightModeBg,
+              // },
             }),
             colors: {},
             components: {
@@ -65,15 +81,21 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           }}
         >
           <AppShell
+            mih="100vh"
             fixed={false}
+            styles={{
+              main: {
+                padding: 0,
+              },
+            }}
+            sx={{ display: 'flex', flexDirection: 'column' }}
             header={
               <Header
                 withBorder={false}
-                sx={(theme) => ({
-                  backgroundColor:
-                    theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+                sx={() => ({
+                  backgroundColor: theme.colorScheme === 'dark' ? darkModeBg : 'transparent',
                 })}
-                height={60}
+                height="100%"
               >
                 <NavHeader />
               </Header>
@@ -81,19 +103,34 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
             footer={
               <Footer
                 withBorder={false}
-                height={60}
-                sx={(theme) => ({
-                  backgroundColor:
-                    theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
-                })}
+                height="100%"
+                sx={{
+                  backgroundClip: 'transparent',
+                }}
+                // eslint-disable-next-line @typescript-eslint/no-shadow
+                // bg={theme.colorScheme === 'dark' ? 'dark.7' : 'dark.9'}
               >
                 <LinkFooter />
               </Footer>
             }
           >
-            <Container size="lg" py="xl" mih="calc(100vh - 156px)">
+            {/* <Container
+              sx={{
+                flexDirection: 'column',
+              }}
+              display="flex"
+              // size="lg"
+              // fluid
+              py="xl"
+              mih="calc(100vh - 226px)"
+              size="lg"
+            > */}
+            <Box mih="calc(100vh - 135px)">
+              <Affix position={{ bottom: rem(20), left: rem(20) }}>{/* <SideLinks /> */}</Affix>
+
               <Component {...pageProps} />
-            </Container>
+            </Box>
+            {/* </Container> */}
           </AppShell>
           <Notifications />
         </MantineProvider>

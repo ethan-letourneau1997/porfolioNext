@@ -1,308 +1,246 @@
 import {
   Text,
   useMantineTheme,
-  Center,
-  Grid,
   Image,
-  SimpleGrid,
   Title,
-  Stack,
-  Button,
-  Flex,
   Box,
-  Card,
-  Tooltip,
   Paper,
+  Anchor,
+  Container,
+  Overlay,
+  createStyles,
+  Space,
+  Stack,
 } from '@mantine/core';
-import { BiFilm } from 'react-icons/bi';
-import Link from 'next/link';
-import { Alfa_Slab_One } from 'next/font/google';
-import { HiDesktopComputer } from 'react-icons/hi';
-import { RiGithubFill } from 'react-icons/ri';
-import { ReactNode } from 'react';
-import { SiCss3, SiDjango, SiHtml5, SiNextdotjs, SiPostgresql, SiReact } from 'react-icons/si';
+
 import { useMediaQuery } from '@mantine/hooks';
-import { IconApi } from '@tabler/icons-react';
-import { FaAws, FaSass } from 'react-icons/fa';
-import {
-  BootstrapIcon,
-  MantineIcon,
-  NextIcon,
-  PythonIcon,
-  TypeScriptIcon,
-} from '../../components/skillIcons/webdevIcons';
-import { SectionHeader } from '../../components/sectionHeader';
 
-const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400' });
+const useStyles = createStyles((theme) => ({
+  pageWrapper: {
+    marginTop: 50,
 
-interface ProjectItemProps {
-  title: string;
-  content: string;
-  titleColor: string;
+    [theme.fn.smallerThan('xl')]: {
+      marginTop: 40,
+    },
+
+    [theme.fn.smallerThan('lg')]: {
+      marginTop: 40,
+    },
+
+    [theme.fn.smallerThan('md')]: {
+      marginTop: 40,
+    },
+
+    [theme.fn.smallerThan('sm')]: {
+      marginTop: 40,
+    },
+
+    [theme.fn.smallerThan('xs')]: {
+      marginTop: 40,
+    },
+  },
+
+  title: {
+    fontSize: 30,
+
+    [theme.fn.smallerThan('xl')]: {
+      fontSize: 26,
+    },
+
+    [theme.fn.smallerThan('lg')]: {
+      fontSize: 28,
+    },
+
+    [theme.fn.smallerThan('md')]: {
+      fontSize: 28,
+    },
+
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: 26,
+    },
+
+    [theme.fn.smallerThan('xs')]: {
+      fontSize: 24,
+    },
+  },
+
+  description: {
+    // fontFamily: gelasio.style.fontFamily,
+    fontSize: 36,
+
+    [theme.fn.smallerThan('xl')]: {
+      fontSize: 18,
+    },
+
+    [theme.fn.smallerThan('lg')]: {
+      fontSize: 18,
+    },
+
+    [theme.fn.smallerThan('md')]: {
+      fontSize: 16,
+    },
+
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: 16,
+    },
+
+    [theme.fn.smallerThan('xs')]: {
+      fontSize: 16,
+    },
+  },
+
+  projectImage: {
+    marginLeft: '0vw',
+    marginRight: '0vw',
+    // marginLeft: 60,
+    // marginRight: 60,
+    [theme.fn.smallerThan('xl')]: {},
+
+    [theme.fn.smallerThan('lg')]: {
+      marginLeft: 0,
+      marginRight: 0,
+    },
+
+    [theme.fn.smallerThan('md')]: {},
+
+    [theme.fn.smallerThan('sm')]: {},
+
+    [theme.fn.smallerThan('xs')]: {},
+  },
+
+  detailsWrapper: {},
+
+  itemDetails: {
+    width: '70%',
+
+    [theme.fn.smallerThan('xl')]: {},
+
+    [theme.fn.smallerThan('lg')]: {
+      width: '100%',
+    },
+  },
+}));
+
+interface ProjectSectionProps {
+  imgPath: string;
+  titleLeft: string;
+  titleRight: string;
+  titleURL: string;
+  description: string;
+  builtWith: string;
+  repoLink: string;
 }
 
-function ProjectItem({ title, titleColor, content }: ProjectItemProps) {
-  // styles
-
-  const tablet = useMediaQuery('(max-width: 48em)');
-
-  return (
-    <Stack spacing={tablet ? 5 : 'xs'} px="md">
-      <Title size={tablet ? 'h4' : 'h3'} align="center" c={titleColor}>
-        {title}
-      </Title>
-      <Text fz={tablet ? 'sm' : 'md'} align="center">
-        {content}
-      </Text>
-    </Stack>
-  );
-}
-
-interface ProjectButtonsProps {
-  siteUrl: string;
-  codeUrl: string;
-}
-
-function Projectbuttons({ siteUrl, codeUrl }: ProjectButtonsProps) {
-  const theme = useMantineTheme();
-
-  // responsive styles
-  const tablet = useMediaQuery('(max-width: 48em)');
-  const desktop = useMediaQuery('(min-width: 74em)');
-
-  return (
-    <Flex justify="center" gap="xl" pt={tablet ? 0 : 'xl'} mt={desktop ? 'xl' : 'md'}>
-      <SimpleGrid cols={2} spacing="xl">
-        <Button
-          fz={tablet ? 'md' : 'lg'}
-          rightIcon={<RiGithubFill size={tablet ? 18 : 20} />}
-          color={theme.colorScheme === 'dark' ? 'gray.3' : 'cyan.7'}
-          variant={theme.colorScheme === 'dark' ? 'outline' : 'outline'}
-          size={tablet ? 'sm' : 'md'}
-          component={Link}
-          href={siteUrl}
-        >
-          Site
-        </Button>
-        <Button
-          fz={tablet ? 'md' : 'lg'}
-          rightIcon={<HiDesktopComputer size={tablet ? 18 : 20} />}
-          color={theme.colorScheme === 'dark' ? 'gray.3' : 'cyan.7'}
-          variant={theme.colorScheme === 'dark' ? 'outline' : 'outline'}
-          size={tablet ? 'sm' : 'md'}
-          component={Link}
-          href={codeUrl}
-        >
-          Code
-        </Button>
-      </SimpleGrid>
-    </Flex>
-  );
-}
-
-interface ProjectSkillColProps {
-  icon: ReactNode;
-  name?: string;
-}
-
-function ProjectSkillCol({ icon, name }: ProjectSkillColProps) {
+function ProjectSection({
+  imgPath,
+  titleLeft,
+  titleRight,
+  titleURL,
+  description,
+  builtWith,
+  repoLink,
+}: ProjectSectionProps) {
   // theme
   const theme = useMantineTheme();
+
+  // styles
+  const { classes } = useStyles();
+
   return (
-    <Tooltip label={name}>
-      <Card shadow="xs" bg={theme.colorScheme === 'dark' ? 'gray.9' : 'gray.0'}>
-        <Center>{icon}</Center>
-      </Card>
-    </Tooltip>
+    <Box>
+      <Box px="2vw" className={classes.itemDetails}>
+        <Title className={classes.title} fw={theme.colorScheme === 'dark' ? 500 : 650}>
+          <Anchor href={titleURL}>{titleLeft}:&nbsp;</Anchor> {titleRight}
+        </Title>
+
+        <Text
+          className={classes.description}
+          fz="lg"
+          mt="sm"
+          c={theme.colorScheme === 'dark' ? 'dimmed' : 'dark.5'}
+          fw={theme.colorScheme === 'dark' ? 400 : 500}
+        >
+          {description}
+        </Text>
+        <Text
+          className={classes.description}
+          fz="lg"
+          mt="xl"
+          c={theme.colorScheme === 'dark' ? 'dimmed' : 'dark.5'}
+          fw={theme.colorScheme === 'dark' ? 400 : 500}
+        >
+          Built With: {builtWith}
+        </Text>
+        <Space h={20} />
+        <Text fw={500} c="dark.4" span>
+          Take a look at&nbsp;
+        </Text>
+        <Anchor href={repoLink} fw={500}>
+          my code&nbsp;&rarr;
+        </Anchor>
+      </Box>
+      <Paper
+        mx="2vw"
+        className={classes.projectImage}
+        mt={30}
+        shadow="md"
+        radius="xs"
+        withBorder
+        pos="relative"
+      >
+        <Overlay opacity={0.05} radius="xs" />
+        <Image radius="xs" src={imgPath} />
+      </Paper>
+    </Box>
   );
 }
 
 export default function Projects() {
   // styles
+  const { classes } = useStyles();
+
   const mobile = useMediaQuery('(max-width: 30em)');
-  const tablet = useMediaQuery('(max-width: 48em)');
-  const desktop = useMediaQuery('(min-width: 74em)');
 
-  // theme
-  const theme = useMantineTheme();
-
-  let iconSize;
-  if (desktop) {
-    iconSize = 35;
-  } else {
-    iconSize = 30;
-  }
   return (
-    <Box pb={50}>
-      <SectionHeader title="Projects" />
-      <Paper
-        radius="md"
-        shadow={theme.colorScheme === 'dark' ? 'none' : 'sm'}
-        p="xl"
-        mt={40}
-        bg={theme.colorScheme === 'dark' ? 'dark.8' : 'white'}
-      >
-        <Center mt="sm">
-          <BiFilm color={theme.colors.yellow[5]} size={35} />
-          <Text c="yellow.5" fz={35} fw={800} component={Link} href="">
-            CinegraphTV
-          </Text>
-        </Center>
-        <Grid mt={30} justify="center">
-          <Grid.Col span={12} xs={9} sm={8} md={7} lg={6}>
-            <Image src="https://res.cloudinary.com/eletourneau/image/upload/v1688024339/cinegraph_l2tg6d.png" />
-          </Grid.Col>
-          <Grid.Col span={12} md={8} lg={6} pt={desktop ? 0 : 'xl'}>
-            <Stack align="stretch">
-              <SimpleGrid cols={mobile ? 1 : 2} spacing={desktop ? 'md' : 'xl'}>
-                <ProjectItem
-                  title="Search"
-                  titleColor={theme.colors.red[6]}
-                  content="Find movies, tv, and stars easily with  autocomplete search."
-                />
-                <ProjectItem
-                  title="API"
-                  titleColor={theme.colors.blue[6]}
-                  content="Retrievs and displays data from the TMDB API."
-                />
-                <ProjectItem
-                  title="Made With"
-                  titleColor={theme.colors.yellow[6]}
-                  content="Next.js, React,Typescript, Fetch API, HTML, SASS, Mantine."
-                />
-                <ProjectItem
-                  title="Coming Soon"
-                  titleColor={theme.colors.green[6]}
-                  content="Login and authentication using your TMDB account. The ability to rate, review, and save movies to your user profile."
-                />
-              </SimpleGrid>
-              <Projectbuttons siteUrl="#" codeUrl="#" />
-              <Box mt="xl" display={tablet ? 'none' : 'block'}>
-                <Flex align="center" mt="sm" gap="sm" direction="column">
-                  <Box>
-                    <Text mb="xs">Built With</Text>
-                    <Flex gap="sm">
-                      {theme.colorScheme === 'dark' ? (
-                        <ProjectSkillCol icon={<NextIcon size={iconSize} />} name="Next.js" />
-                      ) : (
-                        <ProjectSkillCol
-                          icon={<SiNextdotjs color="" size={iconSize} />}
-                          name="Next.js"
-                        />
-                      )}
-                      <ProjectSkillCol
-                        icon={<SiReact color="#61DBFB" size={iconSize} />}
-                        name="React"
-                      />
-                      <ProjectSkillCol
-                        icon={<TypeScriptIcon size={iconSize} />}
-                        name="TypeScript"
-                      />
-                      <ProjectSkillCol icon={<IconApi size={iconSize} />} name="Fetch API" />
-                      <ProjectSkillCol
-                        icon={<SiHtml5 color="#f06529" size={iconSize} />}
-                        name="HTML5"
-                      />
-                      <ProjectSkillCol icon={<FaSass color="#c69" size={iconSize} />} name="SASS" />
-                      <ProjectSkillCol icon={<MantineIcon size={iconSize} />} name="Mantine" />
-                    </Flex>
-                  </Box>
-                </Flex>
-              </Box>
-            </Stack>
-          </Grid.Col>
-        </Grid>
-      </Paper>
-      <Paper
-        shadow={theme.colorScheme === 'dark' ? 'none' : 'sm'}
-        bg={theme.colorScheme === 'dark' ? 'dark.8' : 'white'}
-        p="xl"
-        mt={desktop ? 60 : 60}
-      >
-        <Center mt="sm">
-          {/* <PiBasketball size={30} color="#EB6047" /> */}
-          <Text
-            sx={{
-              fontFamily: alfa.style.fontFamily,
-            }}
-            c="#EB6047"
-            fz={35}
-            fw={800}
-            component={Link}
-            href=""
-          >
-            MARCH MADNESS
-          </Text>
-        </Center>
-        <Grid mt={30} justify="center">
-          {!desktop && (
-            <Grid.Col span={12} xs={9} sm={8} md={7} lg={6}>
-              <Image src="https://res.cloudinary.com/eletourneau/image/upload/v1688024333/march-madness-duo_xrt9on.png" />
-            </Grid.Col>
-          )}
-          <Grid.Col span={12} md={8} lg={6} pt={desktop ? 0 : 'xl'}>
-            <Stack align="stretch">
-              <SimpleGrid cols={mobile ? 1 : 2} spacing={desktop ? 'md' : 'xl'}>
-                <ProjectItem
-                  title="Draft"
-                  titleColor={theme.colors.red[6]}
-                  content="Handles the draft logic while users select out of the entire pool of march madness players."
-                />
-                <ProjectItem
-                  title="Standings"
-                  titleColor={theme.colors.blue[6]}
-                  content="Users can see their up-to-date standings within their group and against all other users."
-                />
-                <ProjectItem
-                  title="Scalability"
-                  titleColor={theme.colors.yellow[6]}
-                  content="Groups of up to ten users draft out of their own pool of players. This creates an endless player pool."
-                />
-                <ProjectItem
-                  title="Made With"
-                  titleColor={theme.colors.green[6]}
-                  content="Django, Postgres, Python, AWS, Bootstrap, HTML, CSS"
-                />
-              </SimpleGrid>
-              <Projectbuttons siteUrl="#" codeUrl="#" />
-              <Box mt="xl" display={tablet ? 'none' : 'block'}>
-                <Flex align="center" mt="sm" gap="sm" direction="column">
-                  <Box>
-                    <Text mb="xs">Built With</Text>
+    <>
+      {/* <SectionHeader title="Projects" /> */}
+      <Container className={classes.pageWrapper} mb={50} size="lg">
+        <Stack spacing={70}>
+          <ProjectSection
+            imgPath="cinegraphNoDevice.png"
+            titleLeft="Cinegraph"
+            titleRight="Movie and TV Database"
+            titleURL="#"
+            description="Explore a wide variety of movies, tv shows, and actors. An autocomplete search
+            functionality makes finding information quick and easy."
+            builtWith="Next.js, React.js, TypeScript, Fetch API, SASS, Mantine"
+            repoLink="#"
+          />
+          <ProjectSection
+            imgPath="mmNoDevice.png"
+            titleLeft="March Madness"
+            titleRight="Fantasy League Tracker"
+            titleURL="#"
+            description=" Created for a client's March Madness league. Allows users to draft their team and
+            keep up to date with league rankings."
+            builtWith="Django, PostgresSQL, AWS Lightsail, Python, Bootstrap, HTML5, SASS"
+            repoLink="#"
+          />
+          <ProjectSection
+            imgPath="mySite.png"
+            titleLeft="Portfolio Website"
+            titleRight="My Personal Site"
+            titleURL="#"
+            description="The site you're on right now!"
+            builtWith="Next.js, React, Typescript, CSS3, HTML5, Mantine"
+            repoLink="#"
+          />
+        </Stack>
 
-                    <Flex gap="sm">
-                      <ProjectSkillCol
-                        icon={<SiDjango color="#2BA977" size={iconSize} />}
-                        name="Django"
-                      />
-                      <ProjectSkillCol
-                        icon={<SiPostgresql color="#228be6" size={iconSize} />}
-                        name="PostgresSQL"
-                      />
-                      <ProjectSkillCol icon={<FaAws color="" size={iconSize} />} name="AWS" />
-                      <ProjectSkillCol icon={<PythonIcon size={iconSize} />} name="Python" />
-                      <ProjectSkillCol icon={<BootstrapIcon size={iconSize} />} name="Bootstrap" />
-                      <ProjectSkillCol
-                        icon={<SiHtml5 color="#f06529" size={iconSize} />}
-                        name="HTML5"
-                      />
-                      <ProjectSkillCol
-                        icon={<SiCss3 color="#2965F1" size={iconSize} />}
-                        name="CSS3"
-                      />
-                    </Flex>
-                  </Box>
-                </Flex>
-              </Box>
-            </Stack>
-          </Grid.Col>
-          {desktop && (
-            <Grid.Col span={12} xs={9} sm={8} md={7} lg={6}>
-              <Image src="/march-madness-duo.png" />
-            </Grid.Col>
-          )}
-        </Grid>
-      </Paper>
-    </Box>
+        <Title fw={600} mt={mobile ? 50 : 80} c="gray.8" size={mobile ? 'h3' : 'h2'} px="2vw">
+          Stay tuned for more...
+        </Title>
+      </Container>
+    </>
   );
 }
