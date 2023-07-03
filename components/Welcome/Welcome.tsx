@@ -256,21 +256,27 @@ export function Welcome() {
           </Title>
           <Stack className={classes.summary} fz={mobile ? 'md' : 'md'}>
             <Text w={tablet ? '100' : '100%'}>
-              A recent graduate with a Bachelor&apos;s degree in Business Administration and a
-              Master&apos;s degree in Information Technology. I am passionate about coding and
-              creating websites and applications that are clean, efficient, and user-friendly.
+              As a recent graduate with a Master&apos;s degree in Information Technology and a
+              Bachelor&apos;s in Business Administration, I am passionate about technology and how
+              it can benefit organizations. I am especially interested in designing clean,
+              efficient, and user-friendly websites and working with data.
             </Text>
             <Text w={tablet ? '100' : '100%'}>
-              I have experience working with various technologies, such as Django, Next.js, Python,
-              React, TypeScript, REST APIs, and database design and implementation. I also have
-              experience working with a client to create a website that met their needs and
-              expectations. I believe in making good design and development accessible to everyone,
-              and I strive to make my work intuitive and user-friendly.
+              I have experience in various technologies including React, Next.js, Django, Python,
+              TypeScript, REST APIs, and databases. Additionally, I have worked with a client to
+              create a website that met their needs and expectations. I believe a good website must
+              be accessible to everyone, and I strive to ensure my work is intuitive, user-friendly
+              and follows best practices in accessibility.
             </Text>
             <Text w={tablet ? '100' : '100%'}>
-              During my free time, I enjoy experimenting with new technologies and working on
-              personal projects. As a developer, I am always seeking new challenges and
-              opportunities to learn and grow.
+              I believe that all organizations, large or small, can benefit from the proper use of
+              data. I have practice in both designing and deploying databases and data analysis. I
+              am particularly interested in machine learning and hope to explore that interest in
+              future projects.
+            </Text>
+            <Text w={tablet ? '100' : '100%'}>
+              As a developer, I am always seeking new challenges and opportunities that allow me to
+              learn and grow.
             </Text>
           </Stack>
         </Container>
