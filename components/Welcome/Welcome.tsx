@@ -1,9 +1,11 @@
 import {
   Anchor,
+  AspectRatio,
   Box,
   Center,
   Container,
   Flex,
+  Paper,
   Stack,
   Text,
   Title,
@@ -13,6 +15,7 @@ import {
 import { Raleway } from 'next/font/google';
 
 import { useMediaQuery } from '@mantine/hooks';
+import { CldImage } from 'next-cloudinary';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
@@ -182,18 +185,16 @@ export function Welcome() {
   const mobile = useMediaQuery('(max-width: 30em)');
   const tablet = useMediaQuery('(max-width: 48em)');
 
-  const headshot = '/headshot.png';
-
   return (
     <>
       <Box bg="black" pb={80} pt={50}>
         <Container size="lg">
           <Center>
             <Flex direction="column" align="center">
-              <Box
+              {/* <Box
                 style={{
                   backgroundImage:
-                    'url(https://res.cloudinary.com/eletourneau/image/upload/v1688274307/My%20Portfolio/headshot_bfmdwq.jpg)',
+                    'url(https://res.cloudinary.com/eletourneau/image/upload/v1688356408/headshot_j71tp0.png)',
                 }}
                 display="inline-block"
                 pos="relative"
@@ -208,7 +209,50 @@ export function Welcome() {
                   backgroundPositionX: -5,
                   WebkitBackgroundSize: 175,
                 }}
-              />
+              /> */}
+              {/* <Box
+                style={{
+                  backgroundImage:
+                    'url(https://res.cloudinary.com/eletourneau/image/upload/v1688406943/portfolio/headshotTinyjpg_g5s4th.jpg)',
+                }}
+                display="inline-block"
+                pos="relative"
+                w={150}
+                h={150}
+                sx={{
+                  backgroundColor: 'black',
+                  borderRadius: '50%',
+                  backgroundImage: `url(${headshot})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundPositionX: -5,
+                  WebkitBackgroundSize: 175,
+                }}
+              /> */}
+              <AspectRatio
+                ratio={1 / 1}
+                w={150}
+                sx={
+                  {
+                    // borderRadius: '50%',
+                  }
+                }
+              >
+                <Paper radius="50%" h="100%" w="100%" bg="#CDC5BD" />
+                <Box pos="relative">
+                  <Box w={175} h={175}>
+                    <CldImage
+                      // blurDataURL={placeholderURL}
+                      // placeholder="blur"
+                      style={{ borderRadius: '50%' }}
+                      fill
+                      quality={65}
+                      alt="Ethan Letourneau Photograph"
+                      src="portfolio/headshotZoomMD_pe3gvh.png"
+                    />
+                  </Box>
+                </Box>
+              </AspectRatio>
               <Title
                 // ff="inter"
                 mt="md"

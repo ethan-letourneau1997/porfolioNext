@@ -1,7 +1,6 @@
 import {
   Text,
   useMantineTheme,
-  Image,
   Title,
   Box,
   Paper,
@@ -12,6 +11,8 @@ import {
   Stack,
   AspectRatio,
 } from '@mantine/core';
+
+import { CldImage } from 'next-cloudinary';
 
 import { useMediaQuery } from '@mantine/hooks';
 
@@ -129,6 +130,7 @@ interface ProjectSectionProps {
   description: string;
   builtWith: string;
   repoLink: string;
+  placeholderColor: string;
 }
 
 function ProjectSection({
@@ -139,10 +141,10 @@ function ProjectSection({
   description,
   builtWith,
   repoLink,
+  placeholderColor,
 }: ProjectSectionProps) {
   // theme
   const theme = useMantineTheme();
-
   // styles
   const { classes } = useStyles();
 
@@ -182,7 +184,7 @@ function ProjectSection({
           my code&nbsp;&rarr;
         </Anchor>
       </Box>
-      <AspectRatio ratio={2880 / 1550}>
+      <AspectRatio ratio={2880 / 1550} pos="relative">
         <Paper
           mx="2vw"
           className={classes.projectImage}
@@ -192,7 +194,14 @@ function ProjectSection({
           withBorder
           pos="relative"
         >
-          <Image radius="xs" src={imgPath} />
+          <CldImage
+            // blurDataURL={placeholderURL}
+            // placeholder="blur"
+            fill
+            alt={`Picture of ${titleLeft} Project`}
+            src={imgPath}
+          />
+          <Paper h="100%" w="100%" bg={placeholderColor} sx={{ borderRadius: theme.radius.xs }} />
         </Paper>
       </AspectRatio>
     </Box>
@@ -211,7 +220,7 @@ export default function Projects() {
       <Container className={classes.pageWrapper} mb={50} size="lg">
         <Stack spacing={70}>
           <ProjectSection
-            imgPath="https://res.cloudinary.com/eletourneau/image/upload/v1688273434/My%20Portfolio/cinegraphProj_uajvkg.webp"
+            imgPath="portfolio/cinegraph_nhiota.png"
             titleLeft="Cinegraph"
             titleRight="Movie and TV Database"
             titleURL="https://www.cinegraphtv.com/"
@@ -219,9 +228,10 @@ export default function Projects() {
             functionality makes finding information quick and easy."
             builtWith="Next.js, React.js, TypeScript, Fetch API, SASS, Mantine"
             repoLink="https://github.com/ethan-letourneau1997/cinegraphNextTemplate"
+            placeholderColor="#161616"
           />
           <ProjectSection
-            imgPath="https://res.cloudinary.com/eletourneau/image/upload/v1688273434/My%20Portfolio/marchMadnessProj_yjiesw.webp"
+            imgPath="portfolio/march_madness_jnhiwu.png"
             titleLeft="March Madness"
             titleRight="Fantasy League Tracker"
             titleURL="http://draft-bracket.com/"
@@ -229,15 +239,17 @@ export default function Projects() {
             keep up to date with league rankings."
             builtWith="Django, PostgresSQL, AWS Lightsail, Python, Bootstrap, HTML5, SASS"
             repoLink="https://github.com/ethan-letourneau1997/march-madness-frontend"
+            placeholderColor="#161B2C"
           />
           <ProjectSection
-            imgPath="https://res.cloudinary.com/eletourneau/image/upload/v1688273434/My%20Portfolio/portfolioProj_bld7ay.webp"
+            imgPath="portfolio/portfolio_aldaad.png"
             titleLeft="Portfolio Website"
             titleRight="My Personal Site"
             titleURL="https://ethanlet.com"
             description="The site you're on right now!"
             builtWith="Next.js, React, Typescript, CSS3, HTML5, Mantine"
             repoLink="https://github.com/ethan-letourneau1997/porfolioNext"
+            placeholderColor="#040404"
           />
         </Stack>
 

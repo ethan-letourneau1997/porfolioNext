@@ -84,3 +84,9 @@
   transform-origin: left;
   transform: scaleX(1);
 }
+
+.grow {
+  transition: all 0.3s ease-in-out;
+}
+.grow:hover {
+}

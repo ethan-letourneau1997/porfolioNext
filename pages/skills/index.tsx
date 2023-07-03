@@ -39,6 +39,9 @@ interface SkillGridColProps {
 function SkillGridCol({ icon, name }: SkillGridColProps) {
   //theme
 
+  // theme
+  const theme = useMantineTheme();
+
   return (
     <Grid.Col span={6} xs={4} sm={4} md={3} lg={3}>
       <Card
@@ -48,6 +51,13 @@ function SkillGridCol({ icon, name }: SkillGridColProps) {
         // sx={{
         //   background: theme.fn.linearGradient(45, theme.colors.dark[7], theme.colors.dark[6]),
         // }}
+        sx={{
+          transition: 'all 0.2s ease-in-out',
+          '&:hover': {
+            transform: 'scale(1.015)',
+            'box-shadow': theme.shadows.md,
+          },
+        }}
       >
         <Stack py="sm" spacing="lg" align="center">
           {icon}
