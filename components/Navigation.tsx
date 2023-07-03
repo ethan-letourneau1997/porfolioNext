@@ -187,11 +187,16 @@ export function NavHeader() {
       >
         <Drawer.Content mt={60} bg={theme.colorScheme === 'dark' ? 'dark.8' : 'black'}>
           <Drawer.Body>
-            {/* <Divider mb="md" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.5'} /> */}
-            {/* <Center> */}
             <Stack fz="lg" pt="md" align="center" justify="center">
               <Box>
-                <Anchor fz="lg" c="gray.0" component={Link} href="/" className={classes.link}>
+                <Anchor
+                  fz="lg"
+                  c="gray.0"
+                  component={Link}
+                  href="/"
+                  className={classes.link}
+                  onClick={closeDrawer}
+                >
                   Home
                 </Anchor>
               </Box>
@@ -202,12 +207,20 @@ export function NavHeader() {
                   component={Link}
                   href="/projects"
                   className={classes.link}
+                  onClick={closeDrawer}
                 >
                   Projects
                 </Anchor>
               </Box>
               <Box>
-                <Anchor fz="lg" c="gray.0" component={Link} href="/skills" className={classes.link}>
+                <Anchor
+                  fz="lg"
+                  c="gray.0"
+                  component={Link}
+                  href="/skills"
+                  className={classes.link}
+                  onClick={closeDrawer}
+                >
                   Skills
                 </Anchor>
               </Box>
@@ -219,12 +232,12 @@ export function NavHeader() {
                   component={Link}
                   href="/contact"
                   className={classes.link}
+                  onClick={closeDrawer}
                 >
                   Contact
                 </Anchor>
               </Box>
             </Stack>
-            {/* </Center> */}
           </Drawer.Body>
         </Drawer.Content>
       </Drawer.Root>

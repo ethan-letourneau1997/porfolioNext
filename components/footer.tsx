@@ -4,7 +4,7 @@ import { BiLogoLinkedin } from 'react-icons/bi';
 import { GithubIcon } from '@mantine/ds';
 import { SiGmail } from 'react-icons/si';
 import { IoIosPaper } from 'react-icons/io';
-import { useColorScheme, useMediaQuery } from '@mantine/hooks';
+import { useMediaQuery } from '@mantine/hooks';
 import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
@@ -27,9 +27,6 @@ export function LinkFooter() {
   // responsive styles
   const mobile = useMediaQuery('(max-width: 30em)');
 
-  const colorScheme = useColorScheme();
-  console.log(colorScheme);
-
   return (
     <Box bg={theme.colorScheme === 'dark' ? 'dark.8' : 'black'}>
       <Container size="lg" py="xs">
@@ -37,6 +34,7 @@ export function LinkFooter() {
           <Group align="flex-end" spacing="xl">
             <Tooltip label="My Github" disabled={!!mobile}>
               <Anchor
+                aria-label="My Github"
                 component={Link}
                 href="https://github.com/ethan-letourneau1997"
                 target="_blank"
@@ -51,6 +49,7 @@ export function LinkFooter() {
             </Tooltip>
             <Tooltip label="My Linkedin" disabled={!!mobile}>
               <Anchor
+                aria-label="My Linkedin"
                 component={Link}
                 href="https://linkedin.com/in/ethan-letourneau"
                 target="_blank"
@@ -63,12 +62,17 @@ export function LinkFooter() {
               </Anchor>
             </Tooltip>
             <Tooltip label="Email Me" disabled={!!mobile}>
-              <Anchor component={Link} href="mailto:ethan.michael.letourneau@gmail.com">
+              <Anchor
+                aria-label="My Email"
+                component={Link}
+                href="mailto:ethan.michael.letourneau@gmail.com"
+              >
                 <SiGmail color={theme.colors.red[6]} size={mobile ? 24 : 28} name="Gmail Icon" />
               </Anchor>
             </Tooltip>
             <Tooltip label="My Resume" disabled={!!mobile}>
               <Anchor
+                aria-label="My Resume"
                 component={Link}
                 href="https://drive.google.com/file/d/12rbXGG4UlniWVrHgxqYtEC3FBE2lmHt5/view?usp=sharing"
                 target="_blank"
