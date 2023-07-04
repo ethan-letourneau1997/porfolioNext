@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['mantine', 'plugin:@next/next/recommended', 'plugin:storybook/recommended'],
+  extends: ['mantine', 'plugin:@next/next/recommended'],
 
   overrides: [
     {
