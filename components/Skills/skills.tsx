@@ -1,7 +1,8 @@
 import { Grid, Title, useMantineTheme, Container, Box } from '@mantine/core';
-import { IconApi } from '@tabler/icons-react';
+
 import React from 'react';
 import { BiTerminal } from 'react-icons/bi';
+import { TbApi } from 'react-icons/tb';
 import { FaDocker, FaNodeJs, FaSass } from 'react-icons/fa';
 import {
   SiCss3,
@@ -68,7 +69,7 @@ export default function Skills() {
 
             <SkillGridCol icon={<FaSass color="#c69" size={iconSize} />} name="SASS" />
             <SkillGridCol icon={<JavaScriptIcon size={iconSize} />} name="JavaScript" />
-            <SkillGridCol icon={<IconApi size={iconSize} />} name="Rest API" />
+            <SkillGridCol icon={<TbApi size={iconSize} />} name="Rest API" />
             <SkillGridCol icon={<SiHtml5 color="#f06529" size={iconSize} />} name="HTML5" />
             <SkillGridCol icon={<SiCss3 color="#2965F1" size={iconSize} />} name="CSS3" />
           </Grid>

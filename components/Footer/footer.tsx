@@ -1,11 +1,12 @@
 import { Anchor, Box, Center, Container, Group, Tooltip, createStyles } from '@mantine/core';
 
 import { BiLogoLinkedin } from 'react-icons/bi';
-import { GithubIcon } from '@mantine/ds';
+
 import { SiGmail } from 'react-icons/si';
 import { IoIosPaper } from 'react-icons/io';
 import { useMediaQuery } from '@mantine/hooks';
 import Link from 'next/link';
+import { ImGithub } from 'react-icons/im';
 
 const useStyles = createStyles((theme) => ({
   hiddenMobile: {
@@ -39,7 +40,7 @@ export function LinkFooter() {
                 href="https://github.com/ethan-letourneau1997"
                 target="_blank"
               >
-                <GithubIcon
+                <ImGithub
                   color={theme.colors.gray[1]}
                   size={mobile ? 24 : 28}
                   style={{ marginBottom: 3 }}

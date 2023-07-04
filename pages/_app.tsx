@@ -17,8 +17,6 @@ const inter = Inter({ subsets: ['latin'] });
 export default function App(props: AppProps & {}) {
   const { Component, pageProps } = props;
 
-  const lightModeBg = '#f2f2f2';
-
   const { asPath } = useRouter();
 
   return (
@@ -36,13 +34,12 @@ export default function App(props: AppProps & {}) {
         theme={{
           fontFamily: inter.style.fontFamily,
 
-          // eslint-disable-next-line @typescript-eslint/no-shadow
           globalStyles: (theme) => ({
             body: {
               ...theme.fn.fontStyles(),
-              lightModeBg,
               color: theme.black,
               lineHeight: theme.lineHeight,
+              backgroundColor: '#f2f2f2',
             },
           }),
           colors: {
