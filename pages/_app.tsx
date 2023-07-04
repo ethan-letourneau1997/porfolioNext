@@ -43,6 +43,7 @@ export default function App(props: AppProps & {}) {
           colors: {
             link: ['#0066CC'],
             darker: ['hsl(359, 100%, 0%)'],
+            slate: ['#f8fafc', '#f1f5f9', '#e2e8f0', '#cbd5e1', '#94a3b8', '#64748b', '#475569'],
           },
           components: {
             Accordian: {

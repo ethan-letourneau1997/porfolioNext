@@ -47,13 +47,15 @@ export function ProjectSection({
           {titleRight}
         </Title>
 
-        <Text className={classes.description} fz="lg" mt="sm" c="dark.5" fw={500}>
+        <Text className={classes.description} maw={600} fz="md" mt="sm" c="dark.9" fw={500}>
           {description}
         </Text>
-        <Text className={classes.description} fz="lg" mt="xl" c="dark.5" fw={500}>
+
+        <Text className={classes.description} mt={35} fz="md" c="dark.4" fw={500}>
           Built With: {builtWith}
         </Text>
-        <Space h={20} />
+
+        <Space h={5} />
         <Text fw={500} c="dark.4" span>
           Take a look at&nbsp;
         </Text>

@@ -22,7 +22,7 @@ export function AboutMe() {
             my resume&nbsp;&rarr;
           </Anchor>
         </Center>
-        <Title mt="xl" align="center" size="h2" c="dark.6" fw={600}>
+        <Title mt="xl" pt="xs" align="center" size="h2" c="dark.8" fw={600}>
           More About Me
         </Title>
         <Stack className={classes.summary} fz={mobile ? 'md' : 'md'}>

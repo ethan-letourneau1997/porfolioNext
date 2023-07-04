@@ -15,9 +15,9 @@ export function NavHeader() {
   let headerDescription = '';
 
   if (asPath === '/projects') {
-    headerDescription = 'Some of the projects I have made and the tools used.';
+    headerDescription = 'A selection of my projects.';
   } else if (asPath === '/skills') {
-    headerDescription = 'The skills and technologies I am proficient in.';
+    headerDescription = 'The technologies I am proficient in.';
   } else if (asPath === '/contact') {
     headerDescription = 'How to get in touch with me.';
   }

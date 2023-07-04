@@ -1,8 +1,19 @@
-import { Box, Container, Center, Flex, AspectRatio, Text, Title } from '@mantine/core';
+import {
+  Box,
+  Container,
+  Center,
+  Flex,
+  AspectRatio,
+  Text,
+  Title,
+  useMantineTheme,
+} from '@mantine/core';
 import { CldImage } from 'next-cloudinary';
 import useStyles from './home.styles';
 
 export function HomeTitle() {
+  // theme
+  const theme = useMantineTheme();
   const { classes } = useStyles();
 
   return (
@@ -23,19 +34,25 @@ export function HomeTitle() {
                 </Box>
               </Box>
             </AspectRatio>
-            <Title mt="md" c="gray.2" ml="-.3vw" align="start" fw={600} className={classes.title}>
+            <Title mt="md" c="gray.0" ml="-.3vw" align="start" fw={600} className={classes.title}>
               Hi, I&apos;m Ethan
             </Title>
-            <Text className={classes.subTitle} c="gray.4">
+            <Text
+              fw={300}
+              className={classes.subTitle}
+              // c="gray.4"
+              c={theme.fn.darken(theme.colors.gray[4], 0.05)}
+            >
               I make websites, work with data, and more.
             </Text>
             <Text
               fz="md"
               align="center"
-              maw={500}
-              fw={500}
+              maw={420}
+              fw={400}
               className={classes.postTitle}
-              c="dimmed"
+              // c="dark.2"
+              c={theme.fn.darken(theme.colors.dark[2], 0.18)}
             >
               A recent graduate working every day to grow. Looking for somehwere to make an impact.
             </Text>

@@ -50,8 +50,6 @@ export default createStyles((theme) => ({
   },
 
   description: {
-    fontSize: 36,
-
     [theme.fn.smallerThan('xl')]: {
       fontSize: 18,
     },
@@ -74,8 +72,6 @@ export default createStyles((theme) => ({
   },
 
   projectImage: {
-    marginLeft: '0vw',
-    marginRight: '0vw',
     [theme.fn.smallerThan('xl')]: {},
 
     [theme.fn.smallerThan('lg')]: {
@@ -93,7 +89,7 @@ export default createStyles((theme) => ({
   detailsWrapper: {},
 
   itemDetails: {
-    width: '70%',
+    width: '100%',
 
     [theme.fn.smallerThan('xl')]: {},
 

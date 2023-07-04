@@ -50,7 +50,7 @@ export default function Skills() {
         <Box px="2vw">
           <Grid>
             <Grid.Col span={12}>
-              <Title mb="sm" mt="sm" align="center" size="h2">
+              <Title mb="sm" mt="sm" align="center" size="h2" c="dark.4">
                 Web Development
               </Title>
             </Grid.Col>
@@ -75,7 +75,7 @@ export default function Skills() {
           </Grid>
           <Grid mt="xl">
             <Grid.Col span={12}>
-              <Title align="center" mb="sm" mt="lg" size="h2">
+              <Title align="center" mb="sm" mt="lg" size="h2" c="dark.4">
                 Data
               </Title>
             </Grid.Col>
@@ -112,7 +112,7 @@ export default function Skills() {
           </Grid>
           <Grid mt="xl">
             <Grid.Col span={12}>
-              <Title mb="sm" mt="lg" align="center" size="h2">
+              <Title mb="sm" mt="lg" align="center" size="h2" c="dark.4">
                 Other
               </Title>
             </Grid.Col>

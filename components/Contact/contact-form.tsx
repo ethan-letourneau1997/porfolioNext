@@ -68,7 +68,7 @@ export function ContactForm() {
 
   return (
     <>
-      <Title fw={600} align="center" size="h4">
+      <Title fw={600} align="center" size="h4" mb="lg" c="dark.6">
         Send me a message!
       </Title>
       <form onSubmit={handleSubmit}>
@@ -80,15 +80,19 @@ export function ContactForm() {
           type="email"
           name="email"
           styles={{
+            label: {
+              color: theme.colors.dark[4],
+              paddingBottom: 5,
+            },
             input: {
               '&:focus': {
-                border: '1px solid black',
+                border: `1px solid ${theme.colors.dark[2]}`,
               },
             },
           }}
         />
         <Textarea
-          mt="md"
+          mt="xl"
           placeholder="Hello, I am reaching out to..."
           label="Your message"
           withAsterisk
@@ -96,9 +100,13 @@ export function ContactForm() {
           minRows={4}
           name="message"
           styles={{
+            label: {
+              color: theme.colors.dark[4],
+              paddingBottom: 5,
+            },
             input: {
               '&:focus': {
-                border: '1px solid black',
+                border: `1px solid ${theme.colors.dark[2]}`,
               },
             },
           }}
@@ -109,23 +117,24 @@ export function ContactForm() {
           color="dark.5"
           type="submit"
           mt="lg"
+          miw={90}
           ml={2}
           fw={500}
           styles={{
             root: {
               '&:not([data-disabled])': theme.fn.hover({
-                backgroundColor: 'black',
+                backgroundColor: theme.colors.dark[5],
                 color: 'white',
               }),
             },
           }}
           sx={{
             '&:hover': {
-              backgroundColor: 'black',
+              backgroundColor: theme.colors.dark[5],
             },
           }}
         >
-          Submit
+          Send
         </Button>
       </form>
     </>

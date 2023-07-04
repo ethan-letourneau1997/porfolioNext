@@ -9,7 +9,7 @@ export function ProjectsPage() {
   const mobile = useMediaQuery('(max-width: 30em)');
   return (
     <Container className={classes.pageWrapper} mb={50} size="lg">
-      <Stack spacing={70}>
+      <Stack spacing={100}>
         <ProjectSection
           imgPath="portfolio/cinegraph_nhiota.png"
           titleLeft="Cinegraph"
@@ -27,7 +27,7 @@ export function ProjectsPage() {
           titleRight="Fantasy League Tracker"
           titleURL="http://draft-bracket.com/"
           description=" Created for a client's March Madness league. Allows users to draft their team and
-      keep up to date with league rankings."
+      keep up to date with league scores and rankings."
           builtWith="Django, PostgresSQL, AWS Lightsail, Python, Bootstrap, HTML5, SASS"
           repoLink="https://github.com/ethan-letourneau1997/march-madness-frontend"
           placeholderColor="#161B2C"
@@ -44,7 +44,7 @@ export function ProjectsPage() {
         />
       </Stack>
 
-      <Title fw={600} mt={mobile ? 50 : 80} c="gray.8" size={mobile ? 'h3' : 'h2'} px="2vw">
+      <Title fw={600} mt={mobile ? 70 : 80} c="gray.8" size={mobile ? 'h3' : 'h2'} px="2vw">
         Stay tuned for more...
       </Title>
     </Container>

@@ -18,11 +18,11 @@ export function SectionHeader({ title, description }: SectionHeaderProps) {
     <Container mt={30} size="lg" pt={20} pb={70}>
       <Center>
         <Box mx="2vw">
-          <Title align="center" c="white" fw={700} size={tablet ? 30 : 45}>
+          <Title align="center" c="gray.2" fw={700} size={tablet ? 30 : 40}>
             {title}
           </Title>
 
-          <Text mt={5} fw={400} size={mobile ? 'md' : 'lg'} c="gray.3">
+          <Text mt={5} fw={400} size={mobile ? 'md' : 'md'} c="gray.6">
             {description}
           </Text>
         </Box>

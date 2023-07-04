@@ -15,6 +15,7 @@ export function SkillGridCol({ icon, name }: SkillGridColProps) {
   return (
     <Grid.Col span={6} xs={4} sm={4} md={3} lg={3}>
       <Card
+        bg="gray.0"
         shadow="xs"
         h="100%"
         sx={{
