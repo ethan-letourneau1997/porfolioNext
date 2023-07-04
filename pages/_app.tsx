@@ -1,42 +1,21 @@
-import {
-  Affix,
-  AppShell,
-  Box,
-  ColorScheme,
-  ColorSchemeProvider,
-  Footer,
-  Header,
-  MantineProvider,
-  rem,
-  useMantineTheme,
-} from '@mantine/core';
+import { AppShell, Box, Footer, Header, MantineProvider } from '@mantine/core';
 import NextApp, { AppContext, AppProps } from 'next/app';
-import { getCookie, setCookie } from 'cookies-next';
+
 import '../styles/global.css';
 
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
 
 import { Notifications } from '@mantine/notifications';
-import { useState } from 'react';
 
 import { useRouter } from 'next/router';
-import { NavHeader } from '../components/Navigation';
-import { LinkFooter } from '../components/footer';
+import { NavHeader } from '../components/Navigation/navigation';
+import { LinkFooter } from '../components/Footer/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
+export default function App(props: AppProps & {}) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
-
-  const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
-    setColorScheme(nextColorScheme);
-    setCookie('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
-  };
-
-  const theme = useMantineTheme();
 
   const lightModeBg = '#f2f2f2';
 
@@ -50,74 +29,70 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         <meta name="description" content="Ethan Letourneau Web Devloper Portfolio Site." />
       </Head>
 
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          withCSSVariables
-          theme={{
-            fontFamily: inter.style.fontFamily,
-            colorScheme,
-            // eslint-disable-next-line @typescript-eslint/no-shadow
-            globalStyles: (theme) => ({
-              body: {
-                ...theme.fn.fontStyles(),
-                backgroundColor: theme.colorScheme === 'dark' ? lightModeBg : lightModeBg,
-                color: theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.black,
-                lineHeight: theme.lineHeight,
-              },
-            }),
-            colors: {
-              link: ['#0066CC'],
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        withCSSVariables
+        theme={{
+          fontFamily: inter.style.fontFamily,
+
+          // eslint-disable-next-line @typescript-eslint/no-shadow
+          globalStyles: (theme) => ({
+            body: {
+              ...theme.fn.fontStyles(),
+              lightModeBg,
+              color: theme.black,
+              lineHeight: theme.lineHeight,
             },
-            components: {
-              Accordian: {
-                defaultProps: {},
-              },
+          }),
+          colors: {
+            link: ['#0066CC'],
+          },
+          components: {
+            Accordian: {
+              defaultProps: {},
+            },
+          },
+        }}
+      >
+        <AppShell
+          mih="100vh"
+          fixed={false}
+          styles={{
+            main: {
+              padding: 0,
             },
           }}
+          sx={{ display: 'flex', flexDirection: 'column' }}
+          header={
+            <Header
+              withBorder={false}
+              sx={() => ({
+                backgroundColor: 'transparent',
+              })}
+              height="100%"
+            >
+              <NavHeader />
+            </Header>
+          }
+          footer={
+            <Footer
+              withBorder={false}
+              height="100%"
+              sx={{
+                backgroundClip: 'transparent',
+              }}
+            >
+              <LinkFooter />
+            </Footer>
+          }
         >
-          <AppShell
-            mih="100vh"
-            fixed={false}
-            styles={{
-              main: {
-                padding: 0,
-              },
-            }}
-            sx={{ display: 'flex', flexDirection: 'column' }}
-            header={
-              <Header
-                withBorder={false}
-                sx={() => ({
-                  backgroundColor: theme.colorScheme === 'dark' ? lightModeBg : 'transparent',
-                })}
-                height="100%"
-              >
-                <NavHeader />
-              </Header>
-            }
-            footer={
-              <Footer
-                withBorder={false}
-                height="100%"
-                sx={{
-                  backgroundClip: 'transparent',
-                }}
-              >
-                <LinkFooter />
-              </Footer>
-            }
-          >
-            <Box mih={asPath === '/' ? 'calc(100vh - 135px)' : 'calc(100vh - 364px)'}>
-              <Affix position={{ bottom: rem(20), left: rem(20) }}>{/* <SideLinks /> */}</Affix>
-
-              <Component {...pageProps} />
-            </Box>
-          </AppShell>
-          <Notifications />
-        </MantineProvider>
-      </ColorSchemeProvider>
+          <Box mih={asPath === '/' ? 'calc(100vh - 135px)' : 'calc(100vh - 364px)'}>
+            <Component {...pageProps} />
+          </Box>
+        </AppShell>
+        <Notifications />
+      </MantineProvider>
     </>
   );
 }
@@ -126,6 +101,5 @@ App.getInitialProps = async (appContext: AppContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
   return {
     ...appProps,
-    colorScheme: getCookie('mantine-color-scheme', appContext.ctx) || 'dark',
   };
 };

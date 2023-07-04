@@ -28,7 +28,7 @@ export function LinkFooter() {
   const mobile = useMediaQuery('(max-width: 30em)');
 
   return (
-    <Box bg={theme.colorScheme === 'dark' ? 'dark.8' : 'black'}>
+    <Box bg="black">
       <Container size="lg" py="xs">
         <Center>
           <Group align="flex-end" spacing="xl">
@@ -40,7 +40,7 @@ export function LinkFooter() {
                 target="_blank"
               >
                 <GithubIcon
-                  color={theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.colors.gray[2]}
+                  color={theme.colors.gray[1]}
                   size={mobile ? 24 : 28}
                   style={{ marginBottom: 3 }}
                   name="Github Icon"
@@ -78,9 +78,7 @@ export function LinkFooter() {
                 target="_blank"
               >
                 <IoIosPaper
-                  color={
-                    theme.colorScheme === 'dark' ? theme.colors.yellow[5] : theme.colors.yellow[6]
-                  }
+                  color={theme.colors.yellow[6]}
                   size={mobile ? 24 : 28}
                   name="Document Icon"
                 />

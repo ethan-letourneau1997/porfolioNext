@@ -20,14 +20,23 @@ export function ContactForm() {
     // Validate email field
     const email = formData.get('email');
     if (!email || !isValidEmail(email as string)) {
-      alert('Please enter a valid email address.');
+      notifications.show({
+        color: 'red',
+        title: 'Error',
+        message: 'Please enter a valid email address.',
+      });
       return;
     }
 
     // Validate message field
     const message = formData.get('message');
     if (!message || (message as string).trim() === '') {
-      alert('Please enter a message.');
+      // alert('Please enter a message.');
+      notifications.show({
+        color: 'red',
+        title: 'Error',
+        message: 'Please enter a message.',
+      });
       return;
     }
 
