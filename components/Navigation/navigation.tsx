@@ -23,13 +23,13 @@ export function NavHeader() {
   }
 
   return (
-    <Box bg="black">
-      <Header bg="black" withBorder={false} height={70} px="md">
+    <Box bg="darker.0">
+      <Header bg="darker.0" withBorder={false} height={70} px="md">
         <Container size="lg" pt={20}>
           <Flex mx="2vw" justify="space-between" sx={{ height: '100%' }}>
             <Center>
               <Anchor c="dark.0" underline={false} component={Link} href="/">
-                <Title c="gray.1" size="h4">
+                <Title c="dark.0" size="h4">
                   Ethan Letourneau
                 </Title>
               </Anchor>

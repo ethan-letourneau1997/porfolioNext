@@ -8,7 +8,6 @@ import { Inter } from 'next/font/google';
 
 import { Notifications } from '@mantine/notifications';
 
-import { useRouter } from 'next/router';
 import { NavHeader } from '../components/Navigation/navigation';
 import { LinkFooter } from '../components/Footer/footer';
 
@@ -17,14 +16,13 @@ const inter = Inter({ subsets: ['latin'] });
 export default function App(props: AppProps & {}) {
   const { Component, pageProps } = props;
 
-  const { asPath } = useRouter();
-
   return (
     <>
       <Head>
         <title>Ethan Letourneau</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <meta name="description" content="Ethan Letourneau Web Devloper Portfolio Site." />
+        <link rel="icon" href="/svg/favicon.svg" />
       </Head>
 
       <MantineProvider
@@ -44,6 +42,7 @@ export default function App(props: AppProps & {}) {
           }),
           colors: {
             link: ['#0066CC'],
+            darker: ['hsl(359, 100%, 0%)'],
           },
           components: {
             Accordian: {
@@ -60,15 +59,13 @@ export default function App(props: AppProps & {}) {
               padding: 0,
             },
           }}
-          sx={{ display: 'flex', flexDirection: 'column' }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}
           header={
-            <Header
-              withBorder={false}
-              sx={() => ({
-                backgroundColor: 'transparent',
-              })}
-              height="100%"
-            >
+            <Header withBorder={false} height="100%">
               <NavHeader />
             </Header>
           }
@@ -84,7 +81,7 @@ export default function App(props: AppProps & {}) {
             </Footer>
           }
         >
-          <Box mih={asPath === '/' ? 'calc(100vh - 135px)' : 'calc(100vh - 364px)'}>
+          <Box>
             <Component {...pageProps} />
           </Box>
         </AppShell>

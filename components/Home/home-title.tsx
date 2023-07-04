@@ -6,7 +6,7 @@ export function HomeTitle() {
   const { classes } = useStyles();
 
   return (
-    <Box bg="black" pb={80} pt={50}>
+    <Box bg="darker.0" pb={80} pt={50}>
       <Container size="lg">
         <Center>
           <Flex direction="column" align="center">
@@ -23,7 +23,7 @@ export function HomeTitle() {
                 </Box>
               </Box>
             </AspectRatio>
-            <Title mt="md" c="white" ml="-.3vw" align="start" fw={600} className={classes.title}>
+            <Title mt="md" c="gray.2" ml="-.3vw" align="start" fw={600} className={classes.title}>
               Hi, I&apos;m Ethan
             </Title>
             <Text className={classes.subTitle} c="gray.4">
@@ -37,8 +37,7 @@ export function HomeTitle() {
               className={classes.postTitle}
               c="dimmed"
             >
-              I&apos;m a recent graduate working every day to grow my skillset. Searching for
-              somehwere to make an impact.
+              A recent graduate working every day to grow. Looking for somehwere to make an impact.
             </Text>
           </Flex>
         </Center>
