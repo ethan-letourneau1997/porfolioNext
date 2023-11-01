@@ -75,7 +75,7 @@ export function LinkFooter() {
               <Anchor
                 aria-label="My Resume"
                 component={Link}
-                href="https://drive.google.com/file/d/12rbXGG4UlniWVrHgxqYtEC3FBE2lmHt5/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Ky1HqNAKIbopkiXFUvTRBZLOLkPU1c1g/view?usp=sharing"
                 target="_blank"
               >
                 <IoIosPaper
