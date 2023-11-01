@@ -33,6 +33,16 @@ export function ProjectsPage() {
           placeholderColor="#161B2C"
         />
         <ProjectSection
+          imgPath="Screenshot_2023-10-31_at_10.38.44_PM_erik7r.png"
+          titleLeft="Spaces"
+          titleRight="Forum for Communities"
+          titleURL="https://spaces-beige.vercel.app/spaces/38/GlobalNews/new/1"
+          description="Create and account and post topics, links, images and engage in discussions with other users."
+          builtWith="Next.js 13 (server side rendering), Supabase, React.js, TypeScript, Mantine"
+          repoLink="https://github.com/ethan-letourneau1997/spaces"
+          placeholderColor="#161616"
+        />
+        <ProjectSection
           imgPath="portfolio/portfolio_aldaad.png"
           titleLeft="Portfolio Website"
           titleRight="My Personal Site"

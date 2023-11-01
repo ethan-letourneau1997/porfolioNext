@@ -47,7 +47,7 @@ export function ProjectSection({
           {titleRight}
         </Title>
 
-        <Text className={classes.description} maw={600} fz="md" mt="sm" c="dark.9" fw={500}>
+        <Text className={classes.description} maw={600} fz="md" mt="sm" c="dark.6" fw={700}>
           {description}
         </Text>
 
